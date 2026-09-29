@@ -1318,6 +1318,674 @@ const DATA = {
   ]
 };
 
+/* ============================= MATERNITY CHAPTER DATA ============================= */
+const MATERNITY_CHAPTERS = [
+  {
+    id: "femrepro",
+    tile: {sym:"Ov", num:"23", theme:"yellow"},
+    title: {en:"Female Reproductive System & Physiology of Conception", ar:"الجهاز التناسلي الأنثوي وفسيولوجيا الحمل"},
+    blurb: {
+      en:"Female pelvic anatomy, puberty, the menstrual and ovarian cycles, fertilization, and fetal development.",
+      ar:"تشريح الحوض الأنثوي، البلوغ، دورتا الحيض والمبيض، الإخصاب، وتطور الجنين."
+    },
+    sections: [
+      {
+        title:{en:"Internal Female Anatomy", ar:"التشريح الداخلي الأنثوي"},
+        points:[
+          {en:"Vagina: a muscular, hollow, tube-shaped organ extending from the vaginal opening to the uterus; it is the route for childbirth and for menstrual blood to leave the body.", ar:"المهبل: عضو عضلي مجوف أنبوبي الشكل يمتد من الفتحة المهبلية إلى الرحم؛ وهو المسلك الذي يخرج منه الطفل أثناء الولادة والدم الحيضي من الرحم."},
+          {en:"Cervix: the lower part of the uterus connecting the uterine cavity to the vagina; it has a very small opening that dilates only during childbirth, protecting the fetus.", ar:"عنق الرحم: الجزء السفلي من الرحم الذي يربط تجويف الرحم بالمهبل؛ وله فتحة صغيرة جدًا لا تتوسع إلا أثناء الولادة، ما يحمي الجنين."},
+          {en:"Uterus (womb): a hollow, pear-shaped muscular organ with a thick lining and muscular walls; it expands and contracts to accommodate the growing fetus and helps push the baby out during labor.", ar:"الرحم: عضو مجوف كمثري الشكل بجدران عضلية وبطانة سميكة؛ يتمدد وينقبض لاستيعاب نمو الجنين، ويساعد على دفع الطفل للخارج أثناء المخاض."},
+          {en:"Fallopian tubes: connect the uterus to the ovaries.", ar:"قناتا فالوب: تربطان الرحم بالمبيضين."},
+          {en:"Ovaries: two oval organs on either side of the uterus that produce, store, and release eggs into the fallopian tubes (ovulation).", ar:"المبيضان: عضوان بيضاويان على جانبي الرحم، ينتجان البويضات ويخزنانها ويطلقانها إلى قناتي فالوب (الإباضة)."}
+        ]
+      },
+      {
+        title:{en:"External Female Anatomy", ar:"التشريح الخارجي الأنثوي"},
+        points:[
+          {en:"The clitoris is a small sensory organ located toward the front of the vulva, where the labial folds join.", ar:"البظر عضو حسي صغير يقع في مقدمة الفرج حيث تلتقي طيات الشفرين."},
+          {en:"The urethra is the canal that carries urine from the bladder to outside the body.", ar:"الإحليل هو القناة التي تنقل البول من المثانة إلى خارج الجسم."},
+          {en:"The labia are the inner and outer lips surrounding the vaginal opening.", ar:"الشفران هما الشفتان الداخلية والخارجية المحيطتان بفتحة المهبل."},
+          {en:"The anus is the opening through which solid waste (feces) passes out of the body.", ar:"الشرج هو الفتحة التي تمر خلالها الفضلات الصلبة (البراز) خارج الجسم."}
+        ]
+      },
+      {
+        title:{en:"The Female Pelvis", ar:"الحوض الأنثوي"},
+        points:[
+          {en:"The female pelvis is structurally adapted for childbirth and is made up of four bones: the two innominate (hip) bones, the sacrum, and the coccyx (tailbone).", ar:"الحوض الأنثوي متكيف بنيويًا لعملية الولادة، ويتكون من أربع عظام: عظمتا الورك (الغُفل)، العجز، والعصعص (عظم الذيل)."},
+          {en:"Each innominate bone has three parts: the ilium (the large flared-out part), the ischium (the thick lower part with the ischial tuberosity we sit on), and the pubis (forms the anterior part).", ar:"يتكون كل عظم غُفل من ثلاثة أجزاء: الحرقفة (الجزء الكبير المتسع)، المقعدة (الجزء السفلي السميك وفيه الحدبة المقعدية التي نجلس عليها)، والعانة (تشكل الجزء الأمامي)."},
+          {en:"Gynecoid pelvis: the normal, round-shaped female pelvis with optimal diameters in all planes; found in about 50% of women.", ar:"الحوض الأنثواني: الحوض الأنثوي الطبيعي دائري الشكل بأقطار مثلى في كل المستويات؛ يوجد لدى نحو 50% من النساء."},
+          {en:"Android pelvis: the normal male-type, heart-shaped pelvis with decreased posterior segments; fetal rotation failure is common; found in about 20% of women.", ar:"الحوض الذكراني: حوض بشكل قلب يشبه حوض الذكر الطبيعي مع نقص القطع الخلفية؛ فشل دوران الجنين شائع فيه؛ يوجد لدى نحو 20% من النساء."},
+          {en:"Anthropoid pelvis: an ape-like, long oval pelvis with a long anteroposterior diameter that may ease delivery of an occiput-posterior fetus; found in about 25% of women.", ar:"الحوض البشراني: حوض طويل بيضاوي شبيه بحوض القرد بقطر أمامي خلفي طويل، وقد يسهل ولادة الجنين بوضعية القذالي الخلفي؛ يوجد لدى نحو 25% من النساء."},
+          {en:"Platypelloid pelvis: a flat, kidney-shaped pelvis with a wide transverse diameter; arrest of fetal descent at the pelvic inlet is common and labor progress can be poor; found in about 5% of women.", ar:"الحوض المفلطح: حوض مسطح بشكل الكلية بقطر مستعرض واسع؛ توقف نزول الجنين عند مدخل الحوض شائع وقد يضعف تقدم المخاض؛ يوجد لدى نحو 5% من النساء."}
+        ]
+      },
+      {
+        title:{en:"Puberty", ar:"البلوغ"},
+        points:[
+          {en:"Puberty is the stage of life at which secondary sexual characteristics appear, with reproductive organ maturation occurring at approximately age 12–13.", ar:"البلوغ هو مرحلة الحياة التي تظهر فيها الخصائص الجنسية الثانوية، ويحدث نضج الأعضاء التكاثرية في نحو سن 12–13 عامًا."},
+          {en:"Secondary sexual characteristics include marked physical growth, an increase in the transverse diameter of the pelvis, breast development, growth of pubic/axillary hair, and vaginal secretions/menarche.", ar:"تشمل الخصائص الجنسية الثانوية نموًا جسديًا ملحوظًا، زيادة القطر المستعرض للحوض، تطور الثديين، نمو شعر العانة والإبط، وإفرازات مهبلية/بدء الحيض."}
+        ]
+      },
+      {
+        title:{en:"The Menstrual Cycle", ar:"دورة الحيض"},
+        points:[
+          {en:"The menstrual cycle is periodic uterine bleeding in response to cyclic hormonal changes; menarche is the first menstrual period, occurring as early as 9 or as late as 17 (average 12–13, normal range 8–16).", ar:"دورة الحيض هي نزيف رحمي دوري استجابة لتغيرات هرمونية دورية؛ وبدء الحيض (المنارك) هو أول دورة، ويحدث بين سن 9 و17 (متوسطه 12–13، والمدى الطبيعي 8–16)."},
+          {en:"The average age of menopause is 52 (commonly 45–55); menopause before age 45 is considered premature.", ar:"متوسط عمر انقطاع الطمث 52 عامًا (وشائع بين 45 و55)؛ ويُعد انقطاعه قبل سن 45 مبكرًا/غير طبيعي."},
+          {en:"A cycle length varying between 8 and 20 days is considered irregular; the accepted average cycle length is 28 days. Flow lasts 1–9 days (commonly 5), with volume ranging from spotting up to about 80 mL on average.", ar:"يُعد اختلاف طول الدورة بين 8 و20 يومًا دورة غير منتظمة؛ ومتوسط الطول المقبول هو 28 يومًا. يستمر التدفق 1–9 أيام (وشائع 5 أيام)، وتتراوح الكمية من مجرد تبقيع إلى نحو 80 مل كمتوسط."},
+          {en:"The menstrual cycle comprises two distinct cycles: the ovarian cycle and the endometrial cycle.", ar:"تتكون دورة الحيض من دورتين متمايزتين: الدورة المبيضية ودورة بطانة الرحم."}
+        ]
+      },
+      {
+        title:{en:"The Ovarian Cycle", ar:"الدورة المبيضية"},
+        points:[
+          {en:"Follicular phase (Days 1–13): FSH stimulates several follicles to grow, but usually only one dominant follicle fully matures and produces estrogen, which rebuilds the uterine lining.", ar:"الطور الجريبي (اليوم 1–13): يحفّز الهرمون المنبه للجريب (FSH) عدة جريبات للنمو، لكن عادة جريبة واحدة سائدة هي التي تنضج تمامًا وتنتج الإستروجين الذي يعيد بناء بطانة الرحم."},
+          {en:"Ovulation (Day 14): a surge in luteinizing hormone (LH) causes the mature follicle to rupture, releasing the secondary oocyte into the fallopian tube.", ar:"الإباضة (اليوم 14): اندفاع مفاجئ في الهرمون الملوتن (LH) يسبب تمزق الجريبة الناضجة، مطلقًا البويضة الثانوية إلى قناة فالوب."},
+          {en:"Luteal phase (Days 15–28): the ruptured follicle's remnants become the corpus luteum, which secretes progesterone and estrogen to prepare the uterus for pregnancy; if pregnancy does not occur, it breaks down and a new cycle begins with menstruation.", ar:"الطور الأصفري (اليوم 15–28): تتحول بقايا الجريبة الممزقة إلى الجسم الأصفر الذي يفرز البروجستيرون والإستروجين لتجهيز الرحم للحمل؛ وإذا لم يحدث حمل يتكسر الجسم الأصفر وتبدأ دورة جديدة بالحيض."}
+        ]
+      },
+      {
+        title:{en:"The Endometrial Cycle & Cervical Mucus", ar:"دورة بطانة الرحم ومخاط عنق الرحم"},
+        points:[
+          {en:"The endometrial cycle is the continuous monthly pattern of structural and functional change in the uterine lining, preparing for embryo implantation or shedding the tissue if pregnancy does not occur; it includes proliferative, secretory, and menstrual phases.", ar:"دورة بطانة الرحم هي نمط شهري مستمر من التغيرات الهيكلية والوظيفية في بطانة الرحم، تجهيزًا لانغراس الجنين أو إسقاط الأنسجة إن لم يحدث حمل؛ وتشمل الطور التكاثري، والطور الإفرازي، وطور الطمث."},
+          {en:"Cervical mucus changes across the cycle: dry/little discharge right after the period; sticky/creamy as estrogen rises pre-ovulation; wetter and thinner approaching ovulation; clear, slippery, and stretchy (egg-white-like) at ovulation — the most fertile window; then thick and sticky after ovulation under progesterone.", ar:"يتغير مخاط عنق الرحم عبر الدورة: جاف وقليل الإفراز بعد الدورة مباشرة؛ لزج وكريمي مع ارتفاع الإستروجين قبل الإباضة؛ أرطب وأرق قرب الإباضة؛ شفاف زَلِق وممتد (يشبه بياض البيض) عند الإباضة — وهي أخصب فترة؛ ثم يصبح سميكًا ولزجًا بعد الإباضة تحت تأثير البروجستيرون."},
+          {en:"Mucus can be altered by hormones (birth control), health factors (dehydration, stress, fever, antihistamines), or infection (itchy, foul-smelling, clumpy, or yellow-green discharge needing evaluation).", ar:"قد يتغير المخاط بسبب الهرمونات (موانع الحمل)، أو عوامل صحية (الجفاف، التوتر، الحمى، مضادات الهيستامين)، أو العدوى (إفرازات مثيرة للحكة، كريهة الرائحة، متكتلة، أو خضراء مصفرة تستدعي التقييم الطبي)."}
+        ]
+      },
+      {
+        title:{en:"Conception & Fertilization", ar:"الحمل والإخصاب"},
+        points:[
+          {en:"Fertilization (also called conception or impregnation) is the union of the ovum and a spermatozoon; the egg is much larger than sperm and is not capable of active movement.", ar:"الإخصاب (ويُسمى أيضًا الحمل أو التحبيل) هو اتحاد البويضة بالحيوان المنوي؛ والبويضة أكبر بكثير من الحيوان المنوي وغير قادرة على الحركة النشطة."},
+          {en:"Sperm can survive in the female reproductive tract for more than 5 days; their functional lifespan is about 48 hours (up to 72+ hours). A typical ejaculate contains 300–500 million sperm, but only about 200 survive the vagina's acidic environment as fertilization candidates.", ar:"يمكن للحيوانات المنوية أن تعيش داخل السبيل التناسلي الأنثوي لأكثر من 5 أيام؛ ودورة حياتها الوظيفية نحو 48 ساعة (وقد تصل إلى 72 ساعة أو أكثر). يحتوي القذف الطبيعي على 300–500 مليون حيوان منوي، لكن نحو 200 فقط تنجو من بيئة المهبل الحمضية لتكون مرشحة للإخصاب."},
+          {en:"Fertilization occurs after ovum release, typically in the outer third of the fallopian tube (the ampulla), forming a diploid cell called a zygote; each reproductive cell carries 23 chromosomes, and sperm carry an X or Y chromosome (XY = male, XX = female).", ar:"يحدث الإخصاب بعد إطلاق البويضة، عادة في الثلث الخارجي من قناة فالوب (الأمبولة)، مكوّنًا خلية ثنائية الصيغة الصبغية تُسمى اللاقحة؛ وتحمل كل خلية تكاثرية 23 كروموسومًا، ويحمل الحيوان المنوي كروموسوم X أو Y (XY = ذكر، XX = أنثى)."},
+          {en:"The fertilized egg's journey to the uterus can take up to a week; cell division begins about 24–36 hours after fertilization, occurring roughly every 12 hours, forming a morula and then developing into a blastocyst, which implants into the uterine wall (implantation).", ar:"قد تستغرق رحلة البويضة المخصبة إلى الرحم أسبوعًا؛ ويبدأ انقسام الخلايا بعد نحو 24–36 ساعة من الإخصاب، ويتكرر كل 12 ساعة تقريبًا، مكوّنًا التُّوَيتَة ثم الكيسة الأريمية التي تنغرس في جدار الرحم (الانغراس)."},
+          {en:"If no fertilization occurs, the oocyte degenerates 12–24 hours after ovulation.", ar:"إذا لم يحدث إخصاب، تتدهور البويضة خلال 12–24 ساعة بعد الإباضة."}
+        ]
+      },
+      {
+        title:{en:"Periods of Fetal Development", ar:"مراحل تطور الجنين"},
+        points:[
+          {en:"Preembryonic period: the first 2 weeks after conception.", ar:"الفترة ما قبل الجنينية: أول أسبوعين بعد الحمل."},
+          {en:"Embryonic period: from day 15 through approximately the 8th week after conception — after which the developing human is called a fetus.", ar:"الفترة الجنينية: من اليوم 15 حتى نحو الأسبوع الثامن بعد الحمل — وبعدها يُسمى الحمل جنينًا (Fetus)."},
+          {en:"Fetal period: from the 9th week after conception until birth.", ar:"فترة الحميل (الجنين المتأخر): من الأسبوع التاسع بعد الحمل وحتى الولادة."}
+        ]
+      },
+      {
+        title:{en:"Fetal Development Milestones", ar:"معالم تطور الجنين حسب الأسبوع"},
+        points:[
+          {en:"Weeks 2–3: lung buds appear, blood circulation begins, the heart is tubular and starts beating, and the neural plate becomes the brain and spinal cord.", ar:"الأسبوع 2–3: تظهر براعم الرئة، تبدأ الدورة الدموية، القلب أنبوبي ويبدأ النبض، وتصبح الصفيحة العصبية الدماغ والحبل الشوكي."},
+          {en:"Week 8: the embryo weighs about 2 g, eyelids begin to fuse, the circulatory system via the umbilical cord is well established, and every organ system is present.", ar:"الأسبوع 8: يزن الجنين نحو 2 جم، تبدأ الجفون بالاندماج، يكتمل الجهاز الدوري عبر الحبل السري، ويكون كل جهاز عضوي موجودًا."},
+          {en:"Week 12: the fetus weighs about 19 g, the face is well formed, kidneys begin forming urine, spontaneous movement occurs, sex is visually recognizable, and the heartbeat can be detected by Doppler between weeks 10–12.", ar:"الأسبوع 12: يزن الجنين نحو 19 جم، الوجه مكتمل التكوّن، تبدأ الكليتان بتكوين البول، تحدث حركات تلقائية، يمكن تمييز الجنس بصريًا، ويُكتشف نبض القلب بجهاز دوبلر بين الأسبوعين 10 و12."},
+          {en:"Week 20: the fetus weighs about 300 g, has nails, muscles are developed, and the heartbeat can be detected with a regular (non-electronic) fetoscope.", ar:"الأسبوع 20: يزن الجنين نحو 300 جم، لديه أظافر، العضلات متطورة، ويُكتشف نبض القلب بمنظار الجنين العادي (غير الإلكتروني)."},
+          {en:"Week 24: the fetus weighs about 600 g, head hair is well formed, skin is reddish and wrinkled, the grasp reflex functions, vernix caseosa covers the body, and the fetus can hear.", ar:"الأسبوع 24: يزن الجنين نحو 600 جم، شعر الرأس مكتمل التكوّن، الجلد محمر ومجعد، يعمل منعكس القبض، يغطي الطلاء الدهني الجسم، ويستطيع الجنين السماع."},
+          {en:"Week 28: the fetus weighs about 1100 g, limbs are well flexed, the brain develops rapidly, eyelids open and close, and the lungs are developed enough for gas exchange — if born, the neonate can breathe at this time.", ar:"الأسبوع 28: يزن الجنين نحو 1100 جم، الأطراف منثنية جيدًا، الدماغ يتطور بسرعة، الجفنان يُفتحان ويُغلقان، والرئتان متطورتان بما يكفي لتبادل الغازات — وإذا وُلد المولود في هذا الوقت يستطيع التنفس."},
+          {en:"Week 32: the fetus is about 31 cm long and weighs 1800–2100 g; bones are fully developed and subcutaneous fat has collected.", ar:"الأسبوع 32: طول الجنين نحو 31 سم ووزنه 1800–2100 جم؛ العظام مكتملة التطور وتجمعت الدهون تحت الجلد."},
+          {en:"Week 36: the fetus weighs 2200–2900 g; skin is pink, the body is rounded and less wrinkled, and lanugo hair is disappearing.", ar:"الأسبوع 36: يزن الجنين 2200–2900 جم؛ الجلد وردي، الجسم مدور وأقل تجعدًا، ويختفي الزغب تدريجيًا."},
+          {en:"Week 40: the fetus weighs more than 3200 g; skin is pinkish and smooth, fingernails extend beyond the fingertips, and the testes are in the scrotum (or the labia majora are well developed).", ar:"الأسبوع 40: يزن الجنين أكثر من 3200 جم؛ الجلد وردي وأملس، تمتد الأظافر بعد أطراف الأصابع، والخصيتان في كيس الصفن (أو الشفران الكبيران متطوران جيدًا)."}
+        ]
+      },
+      {
+        title:{en:"Fetal Environment — Amnion, Chorion & Amniotic Fluid", ar:"بيئة الجنين — السلى والمشيماء والسائل السلوي"},
+        points:[
+          {en:"The amnion is the inner membrane, forming around the 2nd week of embryonic development, enclosing the fluid-filled amniotic cavity that surrounds the embryo/fetus.", ar:"السلى هو الغشاء الداخلي الذي يتشكل في نحو الأسبوع الثاني من التطور الجنيني، ويغلف التجويف السلوي المملوء بالسائل والمحيط بالجنين."},
+          {en:"The chorion is the outer membrane enclosing the amniotic cavity; it becomes vascularized and forms the fetal part of the placenta.", ar:"المشيماء هي الغشاء الخارجي المحيط بالتجويف السلوي؛ وتصبح وعائية وتشكل الجزء الجنيني من المشيمة."},
+          {en:"Amniotic fluid reaches 800–1200 mL by the end of pregnancy; it surrounds, cushions, and protects the fetus, allows fetal movement, maintains fetal body temperature, contains fetal urine (a measure of kidney function), and is modified by fetal swallowing, urinating, and fluid movement through the respiratory tract.", ar:"يصل السائل السلوي إلى 800–1200 مل بنهاية الحمل؛ يحيط بالجنين ويوسّده ويحميه ويسمح بحركته، يحافظ على حرارة جسمه، يحتوي على بوله (مقياس لوظيفة كليته)، ويُعدّله الجنين عبر البلع والتبول وحركة السائل عبر السبيل التنفسي."}
+        ]
+      },
+      {
+        title:{en:"The Placenta", ar:"المشيمة"},
+        points:[
+          {en:"The placenta exchanges nutrients and waste products between the fetus and mother; it begins forming at implantation and is structurally complete by week 12.", ar:"تتبادل المشيمة العناصر الغذائية والفضلات بين الجنين والأم؛ وتبدأ بالتكوّن عند الانغراس ويكتمل بناؤها بحلول الأسبوع 12."},
+          {en:"It produces hormones that maintain the pregnancy, assuming full responsibility for their production by week 12; in the third trimester, transferred maternal immunoglobulin gives the fetus passive immunity to certain diseases for the first months after birth.", ar:"تنتج المشيمة هرمونات تحافظ على الحمل، وتتولى كامل مسؤولية إنتاجها بحلول الأسبوع 12؛ وفي الثلث الثالث، ينقل الغلوبولين المناعي الأمومي للجنين مناعة سلبية ضد بعض الأمراض لأول أشهر بعد الولادة."},
+          {en:"Large particles such as bacteria cannot cross the placenta, but nutrients, drugs, alcohol, antibodies, and viruses can cross it.", ar:"لا يمكن للجسيمات الكبيرة كالبكتيريا عبور المشيمة، لكن العناصر الغذائية والعقاقير والكحول والأجسام المضادة والفيروسات يمكنها العبور."}
+        ]
+      },
+      {
+        title:{en:"Fetal Circulation", ar:"دورة الجنين الدموية"},
+        points:[
+          {en:"The umbilical cord contains two arteries, which carry deoxygenated blood and waste from the fetus, and one vein, which carries oxygenated blood and nutrients to the fetus.", ar:"يحتوي الحبل السري على شريانين ينقلان الدم غير المؤكسج والفضلات من الجنين، ووريد واحد ينقل الدم المؤكسج والعناصر الغذائية إلى الجنين."},
+          {en:"Fetal heart rate depends on gestational age: about 160–170 beats/minute in the first trimester, slowing to 110–160 beats/minute near term — roughly twice the maternal heart rate.", ar:"يعتمد معدل ضربات قلب الجنين على عمر الحمل: نحو 160–170 نبضة/دقيقة في الثلث الأول، ويتباطأ إلى 110–160 نبضة/دقيقة قرب الولادة — وهو ضعف معدل ضربات قلب الأم تقريبًا."},
+          {en:"Because fetal lungs are non-functioning, three circulatory bypasses exist and must close after birth: the ductus arteriosus (pulmonary artery to aorta), the ductus venosus (umbilical vein to inferior vena cava, bypassing the liver), and the foramen ovale (an opening between the right and left atria).", ar:"نظرًا لأن رئتي الجنين غير وظيفيتين، توجد ثلاث مجازات دموية يجب أن تُغلق بعد الولادة: القناة الشريانية (تربط الشريان الرئوي بالأبهر)، القناة الوريدية (تربط الوريد السري بالوريد الأجوف السفلي متجاوزة الكبد)، والثقبة البيضية (فتحة بين الأذينين الأيمن والأيسر)."}
+        ]
+      }
+    ],
+    questions: [
+      {q:{en:"The vagina is best described as:", ar:"يُوصف المهبل بأنه:"},
+       options:[
+         {en:"A muscular, hollow, tube-shaped organ extending from the vaginal opening to the uterus", ar:"عضو عضلي مجوف أنبوبي الشكل يمتد من الفتحة المهبلية إلى الرحم"},
+         {en:"A solid organ that stores and releases eggs", ar:"عضو صلب يخزن البويضات ويطلقها"},
+         {en:"The lower part of the uterus connecting it to the vagina", ar:"الجزء السفلي من الرحم الذي يربطه بالمهبل"},
+         {en:"A membrane that becomes the fetal part of the placenta", ar:"غشاء يشكل الجزء الجنيني من المشيمة"}
+       ], correct:0,
+       exp:{en:"The vagina is a muscular hollow tube extending from the vaginal opening to the uterus, serving reproductive/sexual function and as the route for childbirth and menstrual flow.", ar:"المهبل عضو عضلي مجوف أنبوبي يمتد من الفتحة المهبلية إلى الرحم، ويخدم الوظيفة التكاثرية والجنسية ويُعد مسلك الولادة والدم الحيضي."}},
+
+      {q:{en:"Which structure connects the uterine cavity to the vagina and dilates only during childbirth?", ar:"أي بنية تربط تجويف الرحم بالمهبل ولا تتوسع إلا أثناء الولادة؟"},
+       options:[
+         {en:"The cervix", ar:"عنق الرحم"},
+         {en:"The fallopian tube", ar:"قناة فالوب"},
+         {en:"The ovary", ar:"المبيض"},
+         {en:"The chorion", ar:"المشيماء"}
+       ], correct:0,
+       exp:{en:"The cervix is the lower part of the uterus connecting it to the vagina; its small opening dilates only during childbirth, protecting the fetus.", ar:"عنق الرحم هو الجزء السفلي من الرحم الذي يربطه بالمهبل؛ وفتحته الصغيرة لا تتوسع إلا أثناء الولادة، ما يحمي الجنين."}},
+
+      {q:{en:"The structure connecting the uterus to the ovaries is the:", ar:"البنية التي تربط الرحم بالمبيضين هي:"},
+       options:[
+         {en:"Cervix", ar:"عنق الرحم"},
+         {en:"Fallopian tubes", ar:"قناتا فالوب"},
+         {en:"Urethra", ar:"الإحليل"},
+         {en:"Amnion", ar:"السلى"}
+       ], correct:1,
+       exp:{en:"The fallopian tubes connect the uterus to the ovaries.", ar:"قناتا فالوب تربطان الرحم بالمبيضين."}},
+
+      {q:{en:"Which pelvis type is the normal, round-shaped female pelvis found in about 50% of women?", ar:"أي نوع حوض هو الحوض الأنثوي الطبيعي دائري الشكل الموجود لدى نحو 50% من النساء؟"},
+       options:[
+         {en:"Android", ar:"الذكراني"},
+         {en:"Anthropoid", ar:"البشراني"},
+         {en:"Gynecoid", ar:"الأنثواني"},
+         {en:"Platypelloid", ar:"المفلطح"}
+       ], correct:2,
+       exp:{en:"The gynecoid pelvis is the normal, round female pelvis with optimal diameters, found in about 50% of women.", ar:"الحوض الأنثواني هو الحوض الأنثوي الطبيعي الدائري بأقطار مثلى، ويوجد لدى نحو 50% من النساء."}},
+
+      {q:{en:"Which pelvis type is heart-shaped, found in about 20% of women, and is associated with common failure of fetal rotation?", ar:"أي نوع حوض بشكل قلب، ويوجد لدى نحو 20% من النساء، ويرتبط بشيوع فشل دوران الجنين؟"},
+       options:[
+         {en:"Gynecoid", ar:"الأنثواني"},
+         {en:"Android", ar:"الذكراني"},
+         {en:"Anthropoid", ar:"البشراني"},
+         {en:"Platypelloid", ar:"المفلطح"}
+       ], correct:1,
+       exp:{en:"The android (male-type) pelvis is heart-shaped, found in about 20% of women, with common failure of fetal rotation.", ar:"الحوض الذكراني بشكل قلب، ويوجد لدى نحو 20% من النساء، مع شيوع فشل دوران الجنين."}},
+
+      {q:{en:"A flat, kidney-shaped pelvis with a wide transverse diameter, found in about 5% of women, is the:", ar:"الحوض المسطح بشكل الكلية وبقطر مستعرض واسع، والموجود لدى نحو 5% من النساء، هو:"},
+       options:[
+         {en:"Gynecoid pelvis", ar:"الحوض الأنثواني"},
+         {en:"Anthropoid pelvis", ar:"الحوض البشراني"},
+         {en:"Android pelvis", ar:"الحوض الذكراني"},
+         {en:"Platypelloid pelvis", ar:"الحوض المفلطح"}
+       ], correct:3,
+       exp:{en:"The platypelloid pelvis is flat and kidney-shaped with a wide transverse diameter, found in about 5% of women.", ar:"الحوض المفلطح مسطح بشكل الكلية وبقطر مستعرض واسع، ويوجد لدى نحو 5% من النساء."}},
+
+      {q:{en:"The average age of menarche (the first menstrual period) is:", ar:"متوسط عمر بدء الحيض (أول دورة شهرية) هو:"},
+       options:[
+         {en:"6–7 years", ar:"6–7 سنوات"},
+         {en:"12–13 years", ar:"12–13 سنة"},
+         {en:"20–22 years", ar:"20–22 سنة"},
+         {en:"30–32 years", ar:"30–32 سنة"}
+       ], correct:1,
+       exp:{en:"The average age of menarche is 12–13 years, though a range of 8–16 years is considered normal.", ar:"متوسط عمر بدء الحيض 12–13 سنة، ويُعد المدى بين 8 و16 سنة طبيعيًا."}},
+
+      {q:{en:"The accepted average length of a menstrual cycle is:", ar:"متوسط طول الدورة الشهرية المقبول هو:"},
+       options:[
+         {en:"14 days", ar:"14 يومًا"},
+         {en:"21 days", ar:"21 يومًا"},
+         {en:"28 days", ar:"28 يومًا"},
+         {en:"40 days", ar:"40 يومًا"}
+       ], correct:2,
+       exp:{en:"The accepted average menstrual cycle length is 28 days.", ar:"متوسط طول الدورة الشهرية المقبول هو 28 يومًا."}},
+
+      {q:{en:"During which phase of the ovarian cycle does a dominant follicle mature and produce estrogen under FSH stimulation?", ar:"في أي طور من الدورة المبيضية تنضج جريبة سائدة وتنتج الإستروجين بتحفيز من FSH؟"},
+       options:[
+         {en:"Luteal phase", ar:"الطور الأصفري"},
+         {en:"Follicular phase", ar:"الطور الجريبي"},
+         {en:"Menstrual phase", ar:"طور الطمث"},
+         {en:"Secretory phase", ar:"الطور الإفرازي"}
+       ], correct:1,
+       exp:{en:"The follicular phase (Days 1–13) is stimulated by FSH; a dominant follicle matures and produces estrogen.", ar:"يُحفَّز الطور الجريبي (اليوم 1–13) بالهرمون FSH، وفيه تنضج جريبة سائدة وتنتج الإستروجين."}},
+
+      {q:{en:"Ovulation is triggered by a surge in which hormone?", ar:"تُحفَّز الإباضة باندفاع مفاجئ في أي هرمون؟"},
+       options:[
+         {en:"Follicle-stimulating hormone (FSH)", ar:"الهرمون المنبه للجريب (FSH)"},
+         {en:"Luteinizing hormone (LH)", ar:"الهرمون الملوتن (LH)"},
+         {en:"Progesterone", ar:"البروجستيرون"},
+         {en:"hCG", ar:"موجهة الغدد التناسلية المشيمية (hCG)"}
+       ], correct:1,
+       exp:{en:"A surge in luteinizing hormone (LH) on about day 14 causes the mature follicle to rupture and release the oocyte.", ar:"يسبب اندفاع الهرمون الملوتن (LH) في نحو اليوم 14 تمزق الجريبة الناضجة وإطلاق البويضة."}},
+
+      {q:{en:"After ovulation, the remnants of the ruptured follicle transform into the:", ar:"بعد الإباضة، تتحول بقايا الجريبة الممزقة إلى:"},
+       options:[
+         {en:"Corpus luteum", ar:"الجسم الأصفر"},
+         {en:"Blastocyst", ar:"الكيسة الأريمية"},
+         {en:"Chorion", ar:"المشيماء"},
+         {en:"Morula", ar:"التُّوَيتَة"}
+       ], correct:0,
+       exp:{en:"The corpus luteum forms from the ruptured follicle and secretes progesterone and estrogen to prepare the uterus for pregnancy.", ar:"يتكوّن الجسم الأصفر من بقايا الجريبة الممزقة ويفرز البروجستيرون والإستروجين لتجهيز الرحم للحمل."}},
+
+      {q:{en:"At the time of ovulation, cervical mucus classically becomes:", ar:"عند الإباضة، يصبح مخاط عنق الرحم عادة:"},
+       options:[
+         {en:"Dry with little to no discharge", ar:"جافًا مع إفراز قليل أو معدوم"},
+         {en:"Thick, sticky, and gummy", ar:"سميكًا ولزجًا وصمغيًا"},
+         {en:"Clear, slippery, and stretchy, like raw egg whites", ar:"شفافًا زَلِقًا وممتدًا يشبه بياض البيض النيء"},
+         {en:"Completely absent", ar:"غائبًا تمامًا"}
+       ], correct:2,
+       exp:{en:"At ovulation, peak estrogen produces clear, slippery, stretchy mucus resembling raw egg whites — the most fertile window.", ar:"عند الإباضة، تنتج ذروة الإستروجين مخاطًا شفافًا زَلِقًا وممتدًا يشبه بياض البيض — وهي أخصب فترة."}},
+
+      {q:{en:"Fertilization normally occurs in which part of the fallopian tube?", ar:"يحدث الإخصاب عادة في أي جزء من قناة فالوب؟"},
+       options:[
+         {en:"The outer third (ampulla)", ar:"الثلث الخارجي (الأمبولة)"},
+         {en:"The part closest to the uterus", ar:"الجزء الأقرب إلى الرحم"},
+         {en:"Inside the ovary itself", ar:"داخل المبيض نفسه"},
+         {en:"Inside the uterine cavity", ar:"داخل تجويف الرحم"}
+       ], correct:0,
+       exp:{en:"Fertilization occurs after ovum release, typically in the outer third of the fallopian tube (the ampulla).", ar:"يحدث الإخصاب بعد إطلاق البويضة، عادة في الثلث الخارجي من قناة فالوب (الأمبولة)."}},
+
+      {q:{en:"The functional lifespan of a sperm cell is about:", ar:"دورة حياة الحيوان المنوي الوظيفية تبلغ نحو:"},
+       options:[
+         {en:"48 hours (up to 72+ hours)", ar:"48 ساعة (وقد تصل إلى 72 ساعة أو أكثر)"},
+         {en:"10 minutes", ar:"10 دقائق"},
+         {en:"2 weeks", ar:"أسبوعين"},
+         {en:"6 months", ar:"6 أشهر"}
+       ], correct:0,
+       exp:{en:"A sperm cell's functional lifespan is about 48 hours, possibly as long as 72 hours or more.", ar:"دورة حياة الحيوان المنوي الوظيفية نحو 48 ساعة، وقد تصل إلى 72 ساعة أو أكثر."}},
+
+      {q:{en:"A solid ball of cells formed from repeated division of the fertilized egg, which later develops into a blastocyst, is called a:", ar:"كتلة الخلايا المصمتة الناتجة عن انقسامات متكررة للبويضة المخصبة، والتي تتطور لاحقًا إلى كيسة أريمية، تُسمى:"},
+       options:[
+         {en:"Zygote", ar:"اللاقحة"},
+         {en:"Morula", ar:"التُّوَيتَة"},
+         {en:"Chorion", ar:"المشيماء"},
+         {en:"Corpus luteum", ar:"الجسم الأصفر"}
+       ], correct:1,
+       exp:{en:"Repeated division of the zygote forms a cluster of cells called the morula, which then develops into a blastocyst.", ar:"تُكوّن الانقسامات المتكررة للاقحة تجمع خلايا يُسمى التُّوَيتَة، والتي تتطور بعدها إلى الكيسة الأريمية."}},
+
+      {q:{en:"The embryonic period lasts from about day 15 until approximately which week, after which the developing human is called a fetus?", ar:"تستمر الفترة الجنينية من نحو اليوم 15 حتى أي أسبوع تقريبًا، وبعدها يُسمى الحمل جنينًا (Fetus)؟"},
+       options:[
+         {en:"The 4th week", ar:"الأسبوع الرابع"},
+         {en:"The 8th week", ar:"الأسبوع الثامن"},
+         {en:"The 16th week", ar:"الأسبوع السادس عشر"},
+         {en:"The 24th week", ar:"الأسبوع الرابع والعشرون"}
+       ], correct:1,
+       exp:{en:"The embryonic period runs from day 15 to about the 8th week; afterward, the developing human is called a fetus.", ar:"تمتد الفترة الجنينية من اليوم 15 حتى نحو الأسبوع الثامن؛ وبعدها يُسمى الحمل جنينًا (Fetus)."}},
+
+      {q:{en:"At which week does the fetus develop lungs sufficiently mature for gas exchange, such that if born, the neonate could breathe?", ar:"في أي أسبوع تتطور رئتا الجنين بما يكفي لتبادل الغازات، بحيث يستطيع المولود التنفس إذا وُلد؟"},
+       options:[
+         {en:"Week 12", ar:"الأسبوع 12"},
+         {en:"Week 20", ar:"الأسبوع 20"},
+         {en:"Week 28", ar:"الأسبوع 28"},
+         {en:"Week 40", ar:"الأسبوع 40"}
+       ], correct:2,
+       exp:{en:"By week 28, the lungs are developed enough for gas exchange, and a neonate born at this time could breathe.", ar:"بحلول الأسبوع 28 تكون الرئتان متطورتين بما يكفي لتبادل الغازات، ويستطيع المولود التنفس إذا وُلد في هذا الوقت."}},
+
+      {q:{en:"The inner membrane that forms a fluid-filled sac surrounding the fetus is the:", ar:"الغشاء الداخلي الذي يشكل كيسًا مملوءًا بالسائل يحيط بالجنين هو:"},
+       options:[
+         {en:"Chorion", ar:"المشيماء"},
+         {en:"Amnion", ar:"السلى"},
+         {en:"Placenta", ar:"المشيمة"},
+         {en:"Umbilical cord", ar:"الحبل السري"}
+       ], correct:1,
+       exp:{en:"The amnion is the inner membrane forming the fluid-filled amniotic sac that surrounds the embryo/fetus.", ar:"السلى هو الغشاء الداخلي الذي يشكل الكيس السلوي المملوء بالسائل والمحيط بالجنين."}},
+
+      {q:{en:"By the end of pregnancy, the volume of amniotic fluid is approximately:", ar:"بنهاية الحمل، يبلغ حجم السائل السلوي تقريبًا:"},
+       options:[
+         {en:"50–100 mL", ar:"50–100 مل"},
+         {en:"800–1200 mL", ar:"800–1200 مل"},
+         {en:"3–5 liters", ar:"3–5 لترات"},
+         {en:"10 mL", ar:"10 مل"}
+       ], correct:1,
+       exp:{en:"Amniotic fluid reaches about 800–1200 mL by the end of pregnancy.", ar:"يصل حجم السائل السلوي إلى نحو 800–1200 مل بنهاية الحمل."}},
+
+      {q:{en:"Which of the following CAN normally cross the placenta?", ar:"أي مما يلي يمكنه عبور المشيمة عادة؟"},
+       options:[
+         {en:"Bacteria", ar:"البكتيريا"},
+         {en:"Alcohol, drugs, and antibodies", ar:"الكحول والعقاقير والأجسام المضادة"},
+         {en:"Nothing crosses the placenta", ar:"لا شيء يعبر المشيمة"},
+         {en:"Only maternal blood cells", ar:"خلايا الدم الأمومية فقط"}
+       ], correct:1,
+       exp:{en:"Large particles like bacteria cannot cross the placenta, but nutrients, drugs, alcohol, antibodies, and viruses can.", ar:"لا يمكن للجسيمات الكبيرة كالبكتيريا عبور المشيمة، لكن العناصر الغذائية والعقاقير والكحول والأجسام المضادة والفيروسات يمكنها ذلك."}},
+
+      {q:{en:"The umbilical vein carries:", ar:"ينقل الوريد السري:"},
+         options:[
+         {en:"Deoxygenated blood and waste away from the fetus", ar:"الدم غير المؤكسج والفضلات بعيدًا عن الجنين"},
+         {en:"Oxygenated blood and nutrients to the fetus", ar:"الدم المؤكسج والعناصر الغذائية إلى الجنين"},
+         {en:"Only amniotic fluid", ar:"السائل السلوي فقط"},
+         {en:"Maternal urine", ar:"بول الأم"}
+       ], correct:1,
+       exp:{en:"The single umbilical vein carries oxygenated blood and nutrients to the fetus; the two umbilical arteries carry deoxygenated blood and waste away.", ar:"ينقل الوريد السري الوحيد الدم المؤكسج والعناصر الغذائية إلى الجنين؛ بينما ينقل الشريانان السريان الدم غير المؤكسج والفضلات بعيدًا عنه."}},
+
+      {q:{en:"Fetal heart rate near term typically ranges between:", ar:"يتراوح معدل ضربات قلب الجنين قرب الولادة عادة بين:"},
+       options:[
+         {en:"40–60 beats/minute", ar:"40–60 نبضة/دقيقة"},
+         {en:"110–160 beats/minute", ar:"110–160 نبضة/دقيقة"},
+         {en:"200–250 beats/minute", ar:"200–250 نبضة/دقيقة"},
+         {en:"300–350 beats/minute", ar:"300–350 نبضة/دقيقة"}
+       ], correct:1,
+       exp:{en:"Fetal heart rate slows with fetal growth to about 110–160 beats/minute near or at term.", ar:"يتباطأ معدل ضربات قلب الجنين مع نموه إلى نحو 110–160 نبضة/دقيقة قرب الولادة أو عندها."}},
+
+      {q:{en:"Which fetal circulatory bypass connects the pulmonary artery to the aorta, bypassing the lungs?", ar:"أي مجازة دموية جنينية تربط الشريان الرئوي بالأبهر متجاوزة الرئتين؟"},
+       options:[
+         {en:"Ductus venosus", ar:"القناة الوريدية"},
+         {en:"Foramen ovale", ar:"الثقبة البيضية"},
+         {en:"Ductus arteriosus", ar:"القناة الشريانية"},
+         {en:"Umbilical vein", ar:"الوريد السري"}
+       ], correct:2,
+       exp:{en:"The ductus arteriosus connects the pulmonary artery to the aorta, bypassing the non-functioning fetal lungs.", ar:"تربط القناة الشريانية الشريان الرئوي بالأبهر، متجاوزة رئتي الجنين غير الوظيفيتين."}},
+
+      {q:{en:"The foramen ovale is an opening between which two heart structures?", ar:"الثقبة البيضية هي فتحة بين أي بنيتين في القلب؟"},
+       options:[
+         {en:"The right and left ventricles", ar:"البطينين الأيمن والأيسر"},
+         {en:"The right and left atria", ar:"الأذينين الأيمن والأيسر"},
+         {en:"The aorta and pulmonary artery", ar:"الأبهر والشريان الرئوي"},
+         {en:"The umbilical vein and inferior vena cava", ar:"الوريد السري والوريد الأجوف السفلي"}
+       ], correct:1,
+       exp:{en:"The foramen ovale is the opening between the right and left atria, bypassing the lungs.", ar:"الثقبة البيضية هي الفتحة بين الأذينين الأيمن والأيسر، وتتجاوز الرئتين."}}
+    ]
+  },
+
+  {
+    id: "obstetric",
+    tile: {sym:"Gr", num:"40", theme:"green"},
+    title: {en:"Obstetrical Assessment", ar:"التقييم التوليدي"},
+    blurb: {
+      en:"Maternity terminology, gravida/para and TPAL/GTPALM classification, EDD calculation, signs of pregnancy, maternal risk factors, and danger signs.",
+      ar:"مصطلحات تمريض الولادة، تصنيف الحمل والولادة TPAL/GTPALM، حساب تاريخ الولادة المتوقع، علامات الحمل، عوامل خطر الأم، وعلامات الخطر."
+    },
+    sections: [
+      {
+        title:{en:"Key Terminology", ar:"المصطلحات الأساسية"},
+        points:[
+          {en:"Gestation: pregnancy, or the maternal condition of having a developing fetus in the body.", ar:"الحمل (Gestation): الحالة الأمومية لوجود جنين ينمو داخل الجسم."},
+          {en:"Embryo: the developing human in the uterus, especially during early pregnancy up to the 10th week of gestation.", ar:"الجنين المبكر (Embryo): الكائن النامي في الرحم، خاصة خلال المراحل المبكرة من الحمل حتى الأسبوع العاشر."},
+          {en:"Fetus: the human conceptus from the 10th week of gestation until delivery.", ar:"الجنين (Fetus): الكائن البشري من الأسبوع العاشر من الحمل وحتى الولادة."},
+          {en:"Viability: the capability of living outside the uterus, usually accepted as 24 weeks, though survival at that point is rare.", ar:"القابلية للحياة (Viability): القدرة على العيش خارج الرحم، وتُقبل عادة عند الأسبوع 24، رغم أن النجاة عندها نادرة."}
+        ]
+      },
+      {
+        title:{en:"Gravida Terms", ar:"مصطلحات الحمل (Gravida)"},
+        points:[
+          {en:"Gravida (G): a woman who is or has been pregnant, regardless of the pregnancy's outcome.", ar:"الحامل (G): امرأة حامل حاليًا أو كانت حاملاً من قبل، بغض النظر عن نتيجة الحمل."},
+          {en:"Nulligravida: a woman who is not now and never has been pregnant.", ar:"عديمة الحمل (Nulligravida): امرأة ليست حاملاً الآن ولم تحمل قط."},
+          {en:"Primigravida: a woman pregnant for the first time.", ar:"الحامل لأول مرة (Primigravida): امرأة حامل لأول مرة."},
+          {en:"Multigravida: a woman who has been pregnant more than once.", ar:"متعددة الحمل (Multigravida): امرأة حملت أكثر من مرة."}
+        ]
+      },
+      {
+        title:{en:"Para Terms", ar:"مصطلحات الولادة (Para)"},
+        points:[
+          {en:"Para (P): refers to past pregnancies that reached the period of viability.", ar:"الوالدة (P): تشير إلى حالات الحمل السابقة التي وصلت إلى مرحلة القابلية للحياة."},
+          {en:"Nullipara: a woman who has never completed a pregnancy to the period of viability (she may or may not have had an abortion).", ar:"عديمة الولادة (Nullipara): امرأة لم تُكمل قط حملاً حتى فترة القابلية للحياة (سواء تعرضت لإجهاض أم لا)."},
+          {en:"Primipara: a woman giving birth for the first time, regardless of the number of infants delivered or whether the infant was live or stillborn.", ar:"الوالدة لأول مرة (Primipara): امرأة تلد لأول مرة، بغض النظر عن عدد الأجنة المولودة أو كونهم أحياء أو موتى."},
+          {en:"Multipara: a woman who has given birth more than once.", ar:"متعددة الولادة (Multipara): امرأة ولدت أكثر من مرة."},
+          {en:"Example: a first-time pregnant woman is a primigravida, recorded as Gravida 1, Para 0 (G1P0). After delivering one viable fetus, she becomes G1P1. A second pregnancy makes her Gravida 2, Para 1. A woman with two pregnancies ending in abortion and no viable children is Gravida 2, Para 0.", ar:"مثال: المرأة الحامل لأول مرة (حامل لأول مرة) تُسجَّل كـ Gravida 1, Para 0 (G1P0). بعد ولادة جنين واحد قابل للحياة تصبح G1P1. والحمل الثاني يجعلها Gravida 2, Para 1. أما امرأة حظيت بحملين انتهيا بإجهاض دون أطفال أحياء فتُوصف بـ Gravida 2, Para 0."}
+        ]
+      },
+      {
+        title:{en:"TPAL & GTPALM Classification", ar:"تصنيف TPAL وGTPALM"},
+        points:[
+          {en:"TPAL summarizes obstetric history as four digits: T = full-term deliveries (37 weeks or more); P = preterm deliveries (24 to less than 37 completed weeks); A = abortions (elective or spontaneous, before viability); L = number of children currently living.", ar:"يلخص نظام TPAL التاريخ التوليدي بأربعة أرقام: T = الولادات في الموعد المحدد (37 أسبوعًا أو أكثر)؛ P = الولادات المبكرة (من 24 إلى أقل من 37 أسبوعًا مكتملة)؛ A = حالات الإجهاض (اختيارية أو عفوية، قبل القابلية للحياة)؛ L = عدد الأطفال الأحياء حاليًا."},
+          {en:"GTPALM adds G (gravida = total number of pregnancies) at the start and M (the number of multiple gestations/births) at the end.", ar:"يضيف نظام GTPALM الحرف G (Gravida = إجمالي عدد حالات الحمل) في البداية والحرف M (عدد حالات الحمل/الولادات المتعددة) في النهاية."},
+          {en:"Example: G5-T5-P0-A0-L6-M1 means the woman has been pregnant 5 times, had 5 term deliveries, 0 preterm deliveries, 0 abortions, has 6 living children, and had 1 multiple gestation/birth (e.g., twins).", ar:"مثال: G5-T5-P0-A0-L6-M1 تعني أن المرأة حملت 5 مرات، ولديها 5 ولادات كاملة المدة، وصفر ولادات مبكرة، وصفر حالات إجهاض، و6 أطفال أحياء، وحالة حمل/ولادة متعددة واحدة (مثل توأم)."}
+        ]
+      },
+      {
+        title:{en:"Expected Date of Delivery (EDD)", ar:"تاريخ الولادة المتوقع"},
+        points:[
+          {en:"Naegele's Rule estimates the EDD as: first day of the LMP + 7 days − 3 months + 1 year.", ar:"تُقدّر قاعدة نيجل تاريخ الولادة المتوقع كالتالي: اليوم الأول لآخر دورة شهرية + 7 أيام − 3 أشهر + سنة."},
+          {en:"Example: if the LMP's first day was September 10 — add 7 days (September 17), subtract 3 months (June 17), then add 1 year, giving an EDD of June 17 of the following year.", ar:"مثال: إذا كان اليوم الأول لآخر دورة شهرية هو 10 سبتمبر — نضيف 7 أيام (17 سبتمبر)، نطرح 3 أشهر (17 يونيو)، ثم نضيف سنة واحدة، فيكون تاريخ الولادة المتوقع 17 يونيو من العام التالي."}
+        ]
+      },
+      {
+        title:{en:"Signs & Symptoms of Pregnancy — Presumptive Signs", ar:"علامات وأعراض الحمل — العلامات الظنية"},
+        points:[
+          {en:"The manifestations of pregnancy are classified into three groups: presumptive, probable, and positive signs. Presumptive signs suggest, but do not prove, pregnancy.", ar:"تُصنَّف مظاهر الحمل إلى ثلاث مجموعات: العلامات الظنية، والمحتملة، والمؤكدة (الإيجابية). العلامات الظنية توحي بالحمل ولكنها لا تثبته."},
+          {en:"Abrupt cessation of menses: pregnancy is suspected if more than 10 days pass since the expected onset of menses in a healthy woman.", ar:"الانقطاع المفاجئ للطمث: يُشتبه بالحمل إذا مر أكثر من 10 أيام على الموعد المتوقع للدورة لدى امرأة سليمة."},
+          {en:"Breast changes: enlargement and tenderness, more visible veins, larger/more pigmented and tingling nipples, and possible Montgomery's glands (small elevations on the areolae).", ar:"تغيرات الثدي: تضخم وحساسية، وضوح أكبر للأوردة، تصبح الحلمات أكبر وأكثر تصبغًا وتشعر بالوخز، وقد تظهر غدد مونتغومري (ارتفاعات صغيرة على الهالة)."},
+          {en:"Skin pigmentation changes: chloasma/melasma gravidarum (the \"mask of pregnancy\"), linea nigra (a dark vertical line between the sternum and pubic symphysis), and abdominal striae (striae gravidarum, reddish stretch marks).", ar:"تغيرات تصبغ الجلد: الكلف الحملي (\"قناع الحمل\")، الخط الأسود (خط عمودي داكن بين عظمة القص وعانة العانة)، وعلامات التمدد الحملية (خطوط حمراء)."},
+          {en:"Nausea and vomiting (morning sickness): begins 2–6 weeks after conception and usually resolves spontaneously near the end of the first trimester (12 weeks).", ar:"الغثيان والقيء (غثيان الصباح): يبدأ بين الأسبوعين 2 و6 بعد الإخصاب، ويزول تلقائيًا غالبًا قرب نهاية الثلث الأول (12 أسبوعًا)."},
+          {en:"Urinary frequency: caused by pressure of the expanding uterus on the bladder; decreases around 12 weeks when the uterus rises out of the pelvis, then reappears when the fetal head engages at the end of pregnancy.", ar:"تكرار التبول: ناتج عن ضغط الرحم المتمدد على المثانة؛ يقل حول الأسبوع 12 عندما يرتفع الرحم خارج الحوض، ويعود عند انخراط رأس الجنين في الحوض قرب نهاية الحمل."},
+          {en:"Fatigue: a characteristic of early pregnancy from increased hormone levels.", ar:"الإرهاق: من خصائص الحمل المبكر استجابة لارتفاع مستويات الهرمونات."}
+        ]
+      },
+      {
+        title:{en:"Signs & Symptoms of Pregnancy — Probable Signs", ar:"علامات وأعراض الحمل — العلامات المحتملة"},
+        points:[
+          {en:"Probable signs are objective findings detected by 12–16 weeks of gestation.", ar:"العلامات المحتملة هي موجودات موضوعية تُكتشف بحلول الأسبوع 12–16 من الحمل."},
+          {en:"Uterine enlargement: felt through the abdominal wall just above the symphysis pubis at about 12 weeks; the uterus also changes from a pear shape to a globe shape as pregnancy progresses.", ar:"تضخم الرحم: يُلمس عبر جدار البطن فوق عانة العانة مباشرة عند نحو الأسبوع 12؛ ويتغير شكل الرحم من الكمثرى إلى الكرة مع تقدم الحمل."},
+          {en:"Cervical changes: Chadwick's sign (bluish/purplish discoloration of the cervix and vaginal wall) and Goodell's sign (softening of the cervix, possibly as early as 4 weeks).", ar:"تغيرات عنق الرحم: علامة تشادويك (تغيّر لونه إلى الأزرق/الأرجواني في عنق الرحم وجدار المهبل) وعلامة غوديل (تليّن عنق الرحم، وقد تحدث من الأسبوع الرابع)."},
+          {en:"Hegar's sign: softening and compressibility of the lower uterine segment, occurring at about week 6.", ar:"علامة هيغار: تليّن وقابلية انضغاط الجزء السفلي من الرحم، وتحدث في نحو الأسبوع السادس."},
+          {en:"Braxton Hicks contractions: painless, palpable, irregular uterine contractions felt more often after 28 weeks, usually easing with walking or exercise.", ar:"تقلصات براكستون هيكس: تقلصات رحمية غير مؤلمة وغير منتظمة يمكن جسها، وتُلاحظ أكثر بعد الأسبوع 28، وعادة تخف مع المشي أو التمارين."},
+          {en:"Quickening: the mother's first sensations of fetal movement, occurring between the 16th and 20th week.", ar:"الحركة الأولى للجنين: أول إحساس للأم بحركة الجنين، ويحدث بين الأسبوع 16 والأسبوع 20."},
+          {en:"Ballottement: rebounding of the fetus against the examiner's fingers on palpation. Positive urine or serum hCG tests and changing hCG levels are also probable signs.", ar:"التلاطم الجنيني (Ballottement): ارتداد الجنين نحو أصابع الفاحص عند الجس. كما تُعد نتيجة اختبار حمل hCG الإيجابية وتغيّر مستوياته من العلامات المحتملة أيضًا."}
+        ]
+      },
+      {
+        title:{en:"Signs & Symptoms of Pregnancy — Positive Signs", ar:"علامات وأعراض الحمل — العلامات المؤكدة"},
+        points:[
+          {en:"Positive signs confirm pregnancy. Fetal heart tones (FHTs) are usually heard between weeks 16–20 with a fetoscope, or between weeks 10–12 with a Doppler stethoscope.", ar:"العلامات المؤكدة تثبت الحمل بشكل قاطع. عادة يُسمع نبض قلب الجنين بين الأسبوع 16 و20 باستخدام منظار الجنين، أو بين الأسبوع 10 و12 باستخدام جهاز دوبلر."},
+          {en:"Fetal movements felt by the examiner (after about 20 weeks) and outlining of the fetal body through the maternal abdomen (in the second half of pregnancy) are also positive signs.", ar:"من العلامات المؤكدة أيضًا شعور الفاحص بحركات الجنين (بعد نحو الأسبوع 20)، وتحديد معالم جسم الجنين عبر بطن الأم (في النصف الثاني من الحمل)."}
+        ]
+      },
+      {
+        title:{en:"Maternal Risk Factors", ar:"عوامل خطر الأم"},
+        points:[
+          {en:"Pre-existing conditions: chronic hypertension raises the risk of preeclampsia and restricted placental blood flow; pre-gestational diabetes raises the risk of birth defects, macrosomia, and preterm delivery; autoimmune diseases (lupus, MS) raise the risk of flares and complications; kidney/thyroid disorders can strain the cardiovascular system and affect fetal development.", ar:"الحالات الصحية السابقة: ارتفاع ضغط الدم المزمن يرفع خطر تسمم الحمل وتقييد تدفق الدم للمشيمة؛ سكري ما قبل الحمل يرفع خطر العيوب الخلقية وضخامة الجنين والولادة المبكرة؛ أمراض المناعة الذاتية (كالذئبة والتصلب المتعدد) ترفع خطر النوبات والمضاعفات؛ واضطرابات الكلى والغدة الدرقية قد تُرهق الجهاز القلبي الوعائي وتؤثر على نمو الجنين."},
+          {en:"Demographic/weight factors: maternal age under 17 or over 35 carries higher risk — teens face higher anemia/preterm-labor rates, older mothers face higher gestational diabetes/preeclampsia/cesarean rates; a pre-pregnancy BMI under 18.5 risks low birth weight, while a BMI of 25+ raises gestational diabetes, hypertension, and delivery-complication risk; multiple gestation raises the risk of growth restriction, preterm labor, and postpartum hemorrhage.", ar:"العوامل الديموغرافية والوزن: عمر الأم دون 17 أو فوق 35 يحمل خطرًا أعلى — فالمراهقات أكثر عرضة لفقر الدم والولادة المبكرة، والأمهات الأكبر سنًا أكثر عرضة لسكري الحمل وتسمم الحمل والولادة القيصرية؛ مؤشر كتلة الجسم دون 18.5 قبل الحمل يرفع خطر انخفاض وزن الولادة، بينما 25 فأعلى يرفع خطر سكري الحمل وارتفاع ضغط الدم ومضاعفات الولادة؛ والحمل المتعدد يرفع خطر تقييد نمو الجنين والولادة المبكرة والنزيف التالي للولادة."},
+          {en:"Lifestyle/environmental risks: tobacco, alcohol, or illicit drug use is linked to low birth weight, developmental delay, and congenital anomalies (alcohol is a major teratogen); exposure to infections such as syphilis, rubella, or cytomegalovirus can cause severe birth defects and developmental harm.", ar:"مخاطر نمط الحياة والبيئة: استخدام التبغ أو الكحول أو المخدرات مرتبط بانخفاض وزن الولادة والتأخر التنموي والتشوهات الخلقية (والكحول عامل رئيسي مُشوِّه)؛ والتعرض لعدوى كالزهري أو الحصبة الألمانية أو الفيروس المضخم للخلايا قد يسبب تشوهات خلقية شديدة وضررًا تنمويًا."}
+        ]
+      },
+      {
+        title:{en:"Danger Signs of Pregnancy", ar:"علامات الخطر أثناء الحمل"},
+        points:[
+          {en:"Headache, visual disturbances, or dizziness; an increase in systolic BP of 30 mmHg or more, or diastolic BP of 15 mmHg or more; epigastric pain; burning on urination or backache; abnormal fatigue and nervousness.", ar:"صداع، اضطرابات بصرية، أو دوخة؛ ارتفاع ضغط الدم الانقباضي بمقدار 30 ملم زئبقي أو أكثر، أو الانبساطي بمقدار 15 ملم زئبقي أو أكثر؛ ألم في الشرسوف؛ حرقة أثناء التبول أو ألم في الظهر؛ إرهاق وعصبية غير طبيعيين."},
+          {en:"Anginal pain or shortness of breath; muscular irritability, confusion, or seizures; vaginal bleeding or fluid leaking from the vagina.", ar:"ألم يشبه الذبحة الصدرية أو ضيق تنفس؛ تهيج عضلي، ارتباك، أو نوبات تشنجية؛ نزيف مهبلي أو تسرب سوائل من المهبل."}
+        ]
+      }
+    ],
+    questions: [
+      {q:{en:"Gestation refers to:", ar:"يشير مصطلح \"الحمل\" (Gestation) إلى:"},
+       options:[
+         {en:"The maternal condition of having a developing fetus in the body", ar:"الحالة الأمومية لوجود جنين ينمو داخل الجسم"},
+         {en:"The first menstrual period", ar:"أول دورة شهرية"},
+         {en:"A woman who has never been pregnant", ar:"امرأة لم تحمل قط"},
+         {en:"The rupture of the amniotic membranes", ar:"تمزق الأغشية السلوية"}
+       ], correct:0,
+       exp:{en:"Gestation is pregnancy — the maternal condition of carrying a developing fetus.", ar:"الحمل (Gestation) هو الحالة الأمومية لوجود جنين ينمو داخل الجسم."}},
+
+      {q:{en:"Viability is usually accepted as beginning at approximately:", ar:"تُقبل القابلية للحياة عادة عند بداية نحو:"},
+       options:[
+         {en:"10 weeks", ar:"10 أسابيع"},
+         {en:"16 weeks", ar:"16 أسبوعًا"},
+         {en:"24 weeks", ar:"24 أسبوعًا"},
+         {en:"36 weeks", ar:"36 أسبوعًا"}
+       ], correct:2,
+       exp:{en:"Viability — the capability of living outside the uterus — is usually accepted as 24 weeks, though survival is rare at that point.", ar:"القابلية للحياة تُقبل عادة عند الأسبوع 24، رغم أن النجاة عندها نادرة."}},
+
+      {q:{en:"A woman who is not now and has never been pregnant is termed:", ar:"المرأة التي ليست حاملاً الآن ولم تحمل قط تُسمى:"},
+       options:[
+         {en:"Primigravida", ar:"حامل لأول مرة"},
+         {en:"Nulligravida", ar:"عديمة الحمل"},
+         {en:"Multigravida", ar:"متعددة الحمل"},
+         {en:"Nullipara", ar:"عديمة الولادة"}
+       ], correct:1,
+       exp:{en:"Nulligravida describes a woman who is not now and has never been pregnant.", ar:"عديمة الحمل هي المرأة التي ليست حاملاً الآن ولم تحمل قط."}},
+
+      {q:{en:"\"Para\" refers to:", ar:"يشير مصطلح \"Para\" إلى:"},
+       options:[
+         {en:"The total number of pregnancies, regardless of outcome", ar:"إجمالي عدد حالات الحمل، بغض النظر عن النتيجة"},
+         {en:"Past pregnancies that reached the period of viability", ar:"حالات الحمل السابقة التي وصلت إلى مرحلة القابلية للحياة"},
+         {en:"Only pregnancies ending in live births at term", ar:"حالات الحمل التي انتهت بولادة حية كاملة المدة فقط"},
+         {en:"The number of multiple gestations", ar:"عدد حالات الحمل المتعدد"}
+       ], correct:1,
+       exp:{en:"Para refers to past pregnancies that reached the period of viability, regardless of the outcome.", ar:"تشير Para إلى حالات الحمل السابقة التي وصلت إلى مرحلة القابلية للحياة، بغض النظر عن النتيجة."}},
+
+      {q:{en:"A woman giving birth for the first time, regardless of whether the infant was live or stillborn, is termed:", ar:"المرأة التي تلد لأول مرة، بغض النظر عن كون المولود حيًا أو ميتًا، تُسمى:"},
+       options:[
+         {en:"Multipara", ar:"متعددة الولادة"},
+         {en:"Nullipara", ar:"عديمة الولادة"},
+         {en:"Primipara", ar:"والدة لأول مرة"},
+         {en:"Primigravida", ar:"حامل لأول مرة"}
+       ], correct:2,
+       exp:{en:"Primipara describes a woman giving birth for the first time, regardless of the number of infants or whether they were live or stillborn.", ar:"الوالدة لأول مرة (Primipara) هي المرأة التي تلد للمرة الأولى، بغض النظر عن عدد الأجنة أو كونهم أحياء أو موتى."}},
+
+      {q:{en:"A woman pregnant for the first time is typically recorded as:", ar:"عادة تُسجَّل المرأة الحامل لأول مرة كـ:"},
+       options:[
+         {en:"Gravida 0, Para 1", ar:"Gravida 0, Para 1"},
+         {en:"Gravida 1, Para 0 (G1P0)", ar:"Gravida 1, Para 0 (G1P0)"},
+         {en:"Gravida 2, Para 2", ar:"Gravida 2, Para 2"},
+         {en:"Gravida 1, Para 1 automatically", ar:"Gravida 1, Para 1 تلقائيًا"}
+       ], correct:1,
+       exp:{en:"A first-time pregnant woman (primigravida) is recorded as Gravida 1, Para 0 (G1P0) before delivery.", ar:"تُسجَّل المرأة الحامل لأول مرة كـ Gravida 1, Para 0 (G1P0) قبل الولادة."}},
+
+      {q:{en:"In the TPAL system, \"T\" represents:", ar:"في نظام TPAL، يمثل الحرف \"T\":"},
+       options:[
+         {en:"Preterm deliveries", ar:"الولادات المبكرة"},
+         {en:"Full-term deliveries (37 weeks or more)", ar:"الولادات كاملة المدة (37 أسبوعًا أو أكثر)"},
+         {en:"Abortions", ar:"حالات الإجهاض"},
+         {en:"Living children", ar:"الأطفال الأحياء"}
+       ], correct:1,
+       exp:{en:"\"T\" in TPAL represents full-term deliveries — 37 weeks or more.", ar:"يمثل الحرف \"T\" في TPAL الولادات كاملة المدة — 37 أسبوعًا أو أكثر."}},
+
+      {q:{en:"In the TPAL system, preterm deliveries (\"P\") are defined as:", ar:"في نظام TPAL، تُعرَّف الولادات المبكرة (\"P\") بأنها:"},
+       options:[
+         {en:"24 to less than 37 completed weeks", ar:"من 24 إلى أقل من 37 أسبوعًا مكتملة"},
+         {en:"Less than 20 weeks only", ar:"أقل من 20 أسبوعًا فقط"},
+         {en:"37 weeks or more", ar:"37 أسبوعًا أو أكثر"},
+         {en:"Any delivery regardless of gestational age", ar:"أي ولادة بغض النظر عن عمر الحمل"}
+       ], correct:0,
+       exp:{en:"Preterm deliveries are defined as 24 to less than 37 completed weeks of gestation.", ar:"تُعرَّف الولادات المبكرة بأنها من 24 إلى أقل من 37 أسبوعًا مكتملة من الحمل."}},
+
+      {q:{en:"In the GTPALM system, the additional \"M\" (beyond TPAL) represents:", ar:"في نظام GTPALM، يمثل الحرف الإضافي \"M\" (بخلاف TPAL):"},
+       options:[
+         {en:"The mother's age", ar:"عمر الأم"},
+         {en:"The number of multiple gestations and births", ar:"عدد حالات الحمل والولادات المتعددة"},
+         {en:"The month of delivery", ar:"شهر الولادة"},
+         {en:"The number of miscarriages only", ar:"عدد حالات الإجهاض فقط"}
+       ], correct:1,
+       exp:{en:"\"M\" in GTPALM represents the number of multiple gestations and births (e.g., twins).", ar:"يمثل الحرف \"M\" في GTPALM عدد حالات الحمل والولادات المتعددة (كالتوائم)."}},
+
+      {q:{en:"A woman summarized as G5-T5-P0-A0-L6-M1 has how many living children?", ar:"امرأة تاريخها التوليدي G5-T5-P0-A0-L6-M1، كم عدد أطفالها الأحياء؟"},
+       options:[
+         {en:"5", ar:"5"},
+         {en:"0", ar:"0"},
+         {en:"6", ar:"6"},
+         {en:"1", ar:"1"}
+       ], correct:2,
+       exp:{en:"The \"L6\" indicates 6 living children (from 5 pregnancies, including one set of multiples).", ar:"يشير الرمز \"L6\" إلى وجود 6 أطفال أحياء (من 5 حالات حمل، من ضمنها حمل متعدد واحد)."}},
+
+      {q:{en:"Naegele's Rule for calculating the Expected Date of Delivery is:", ar:"قاعدة نيجل لحساب تاريخ الولادة المتوقع هي:"},
+       options:[
+         {en:"First day of LMP + 7 days − 3 months + 1 year", ar:"اليوم الأول لآخر دورة شهرية + 7 أيام − 3 أشهر + سنة"},
+         {en:"First day of LMP − 7 days + 3 months", ar:"اليوم الأول لآخر دورة شهرية − 7 أيام + 3 أشهر"},
+         {en:"Last day of LMP + 14 days + 9 months", ar:"اليوم الأخير لآخر دورة شهرية + 14 يومًا + 9 أشهر"},
+         {en:"Date of ovulation + 9 months exactly", ar:"تاريخ الإباضة + 9 أشهر بالضبط"}
+       ], correct:0,
+       exp:{en:"Naegele's Rule: first day of the LMP + 7 days − 3 months + 1 year.", ar:"قاعدة نيجل: اليوم الأول لآخر دورة شهرية + 7 أيام − 3 أشهر + سنة."}},
+
+      {q:{en:"Presumptive signs of pregnancy are best described as:", ar:"تُوصف العلامات الظنية للحمل بأنها:"},
+       options:[
+         {en:"Objective findings that confirm pregnancy with certainty", ar:"موجودات موضوعية تؤكد الحمل بشكل قاطع"},
+         {en:"Signs and symptoms that suggest, but do not prove, pregnancy", ar:"علامات وأعراض توحي بالحمل دون أن تثبته"},
+         {en:"Only laboratory findings", ar:"موجودات مخبرية فقط"},
+         {en:"Signs detected exclusively by ultrasound", ar:"علامات تُكتشف حصرًا بالموجات فوق الصوتية"}
+       ], correct:1,
+       exp:{en:"Presumptive signs are subjective/physical signs that suggest pregnancy without proving it, such as amenorrhea or nausea.", ar:"العلامات الظنية هي علامات ذاتية/جسدية توحي بالحمل دون إثباته، مثل انقطاع الطمث أو الغثيان."}},
+
+      {q:{en:"The \"mask of pregnancy\" — patches of darkened facial skin — is known as:", ar:"\"قناع الحمل\" — بقع تصبغ داكنة على الوجه — يُعرف بـ:"},
+       options:[
+         {en:"Linea nigra", ar:"الخط الأسود"},
+         {en:"Chloasma/melasma gravidarum", ar:"الكلف الحملي"},
+         {en:"Striae gravidarum", ar:"علامات التمدد الحملية"},
+         {en:"Chadwick's sign", ar:"علامة تشادويك"}
+       ], correct:1,
+       exp:{en:"Chloasma/melasma gravidarum, the \"mask of pregnancy,\" refers to darkened facial skin patches.", ar:"الكلف الحملي، أو \"قناع الحمل\"، يشير إلى بقع تصبغ داكنة على الوجه."}},
+
+      {q:{en:"Nausea and vomiting of pregnancy (\"morning sickness\") typically resolves spontaneously near the end of:", ar:"يزول غثيان وقيء الحمل (\"غثيان الصباح\") تلقائيًا عادة قرب نهاية:"},
+       options:[
+         {en:"The first trimester (about 12 weeks)", ar:"الثلث الأول (نحو 12 أسبوعًا)"},
+         {en:"The second trimester", ar:"الثلث الثاني"},
+         {en:"The third trimester", ar:"الثلث الثالث"},
+         {en:"It never resolves before delivery", ar:"لا يزول أبدًا قبل الولادة"}
+       ], correct:0,
+       exp:{en:"Morning sickness begins 2–6 weeks after conception and usually resolves spontaneously near the end of the first trimester (12 weeks).", ar:"يبدأ غثيان الصباح بين الأسبوعين 2 و6 بعد الإخصاب، ويزول تلقائيًا غالبًا قرب نهاية الثلث الأول (12 أسبوعًا)."}},
+
+      {q:{en:"A bluish or purplish discoloration of the cervix and vaginal wall is known as:", ar:"التغيّر اللوني إلى الأزرق أو الأرجواني في عنق الرحم وجدار المهبل يُعرف بـ:"},
+       options:[
+         {en:"Goodell's sign", ar:"علامة غوديل"},
+         {en:"Hegar's sign", ar:"علامة هيغار"},
+         {en:"Chadwick's sign", ar:"علامة تشادويك"},
+         {en:"Ballottement", ar:"التلاطم الجنيني"}
+       ], correct:2,
+       exp:{en:"Chadwick's sign is the bluish/purplish discoloration of the cervix and vaginal wall, a probable sign of pregnancy.", ar:"علامة تشادويك هي التغيّر اللوني إلى الأزرق أو الأرجواني في عنق الرحم وجدار المهبل، وهي علامة محتملة للحمل."}},
+
+      {q:{en:"Softening of the cervix, which may occur as early as 4 weeks of gestation, is known as:", ar:"تليّن عنق الرحم، الذي قد يحدث من الأسبوع الرابع من الحمل، يُعرف بـ:"},
+       options:[
+         {en:"Chadwick's sign", ar:"علامة تشادويك"},
+         {en:"Goodell's sign", ar:"علامة غوديل"},
+         {en:"Hegar's sign", ar:"علامة هيغار"},
+         {en:"Quickening", ar:"الحركة الأولى للجنين"}
+       ], correct:1,
+       exp:{en:"Goodell's sign is softening of the cervix, which may occur as early as 4 weeks of gestation.", ar:"علامة غوديل هي تليّن عنق الرحم، وقد تحدث من الأسبوع الرابع من الحمل."}},
+
+      {q:{en:"Painless, palpable, irregular uterine contractions that are felt more often after 28 weeks and usually ease with walking are called:", ar:"التقلصات الرحمية غير المؤلمة وغير المنتظمة التي يمكن جسها وتُلاحظ أكثر بعد الأسبوع 28 وعادة تخف مع المشي تُسمى:"},
+       options:[
+         {en:"True labor contractions", ar:"تقلصات المخاض الحقيقي"},
+         {en:"Braxton Hicks contractions", ar:"تقلصات براكستون هيكس"},
+         {en:"Ballottement", ar:"التلاطم الجنيني"},
+         {en:"Quickening", ar:"الحركة الأولى للجنين"}
+       ], correct:1,
+       exp:{en:"Braxton Hicks contractions are painless, irregular contractions felt more often after 28 weeks and usually easing with walking or exercise.", ar:"تقلصات براكستون هيكس غير مؤلمة وغير منتظمة، وتُلاحظ أكثر بعد الأسبوع 28، وعادة تخف مع المشي أو التمارين."}},
+
+      {q:{en:"\"Quickening,\" the mother's first sensation of fetal movement, typically occurs between:", ar:"\"الحركة الأولى للجنين\"، أول إحساس للأم بحركة الجنين، تحدث عادة بين:"},
+       options:[
+         {en:"Weeks 4 and 6", ar:"الأسبوعين 4 و6"},
+         {en:"Weeks 16 and 20", ar:"الأسبوعين 16 و20"},
+         {en:"Weeks 30 and 34", ar:"الأسبوعين 30 و34"},
+         {en:"Weeks 38 and 40", ar:"الأسبوعين 38 و40"}
+       ], correct:1,
+       exp:{en:"Quickening — the mother's first sensation of fetal movement — occurs between weeks 16 and 20.", ar:"تحدث الحركة الأولى للجنين — أول إحساس للأم بحركته — بين الأسبوعين 16 و20."}},
+
+      {q:{en:"Which of the following is a POSITIVE (confirmatory) sign of pregnancy?", ar:"أي مما يلي علامة مؤكدة (قاطعة) للحمل؟"},
+       options:[
+         {en:"Amenorrhea", ar:"انقطاع الطمث"},
+         {en:"Fetal heart tones heard by the examiner", ar:"سماع الفاحص لنبض قلب الجنين"},
+         {en:"Nausea and vomiting", ar:"الغثيان والقيء"},
+         {en:"A positive home urine pregnancy test", ar:"اختبار حمل منزلي إيجابي عبر البول"}
+       ], correct:1,
+       exp:{en:"Fetal heart tones heard by the examiner are a positive sign that confirms pregnancy; the others are presumptive or probable signs.", ar:"سماع نبض قلب الجنين من قبل الفاحص علامة مؤكدة تثبت الحمل؛ أما البقية فهي علامات ظنية أو محتملة."}},
+
+      {q:{en:"Fetal heart tones are usually first detectable with a Doppler stethoscope between:", ar:"يمكن عادة اكتشاف نبض قلب الجنين لأول مرة بجهاز دوبلر بين:"},
+       options:[
+         {en:"Weeks 4 and 6", ar:"الأسبوعين 4 و6"},
+         {en:"Weeks 10 and 12", ar:"الأسبوعين 10 و12"},
+         {en:"Weeks 24 and 26", ar:"الأسبوعين 24 و26"},
+         {en:"Weeks 36 and 38", ar:"الأسبوعين 36 و38"}
+       ], correct:1,
+       exp:{en:"With a Doppler stethoscope, fetal heart tones are typically detected between weeks 10 and 12; with a fetoscope, between weeks 16 and 20.", ar:"باستخدام جهاز دوبلر، يُكتشف نبض قلب الجنين عادة بين الأسبوعين 10 و12؛ أما بمنظار الجنين فبين الأسبوعين 16 و20."}},
+
+      {q:{en:"Chronic hypertension before pregnancy primarily increases the risk of:", ar:"ارتفاع ضغط الدم المزمن قبل الحمل يرفع بشكل رئيسي خطر:"},
+       options:[
+         {en:"Preeclampsia and restricted placental blood flow", ar:"تسمم الحمل وتقييد تدفق الدم للمشيمة"},
+         {en:"Congenital heart defects only", ar:"العيوب الخلقية القلبية فقط"},
+         {en:"Twin pregnancy", ar:"الحمل التوأمي"},
+         {en:"Early menopause", ar:"انقطاع الطمث المبكر"}
+       ], correct:0,
+       exp:{en:"Chronic hypertension before pregnancy raises the risk of preeclampsia and restricted blood flow to the placenta.", ar:"يرفع ارتفاع ضغط الدم المزمن قبل الحمل خطر الإصابة بتسمم الحمل وتقييد تدفق الدم إلى المشيمة."}},
+
+      {q:{en:"Which substance is considered a major teratogen when used during pregnancy?", ar:"أي مادة تُعد عاملاً رئيسيًا مسببًا للتشوهات عند استخدامها أثناء الحمل؟"},
+       options:[
+         {en:"Alcohol", ar:"الكحول"},
+         {en:"Vitamin D", ar:"فيتامين د"},
+         {en:"Folic acid", ar:"حمض الفوليك"},
+         {en:"Calcium", ar:"الكالسيوم"}
+       ], correct:0,
+       exp:{en:"Alcohol is a major teratogen; substance use in pregnancy is linked to low birth weight, developmental delay, and congenital anomalies.", ar:"الكحول عامل رئيسي مسبب للتشوهات؛ ويرتبط تعاطي المواد أثناء الحمل بانخفاض وزن الولادة والتأخر التنموي والتشوهات الخلقية."}},
+
+      {q:{en:"An increase in systolic blood pressure considered a danger sign of pregnancy is:", ar:"يُعد ارتفاع ضغط الدم الانقباضي بمقدار معين علامة خطر أثناء الحمل، وهو:"},
+       options:[
+         {en:"5 mmHg or more", ar:"5 ملم زئبقي أو أكثر"},
+         {en:"15 mmHg or more", ar:"15 ملم زئبقي أو أكثر"},
+         {en:"30 mmHg or more", ar:"30 ملم زئبقي أو أكثر"},
+         {en:"100 mmHg or more", ar:"100 ملم زئبقي أو أكثر"}
+       ], correct:2,
+       exp:{en:"A danger sign is an increase in systolic BP of 30 mmHg or more (or diastolic BP of 15 mmHg or more).", ar:"من علامات الخطر ارتفاع ضغط الدم الانقباضي بمقدار 30 ملم زئبقي أو أكثر (أو الانبساطي بمقدار 15 ملم زئبقي أو أكثر)."}},
+
+      {q:{en:"Which of the following is a danger sign of pregnancy requiring prompt evaluation?", ar:"أي مما يلي علامة خطر أثناء الحمل تستدعي تقييمًا فوريًا؟"},
+       options:[
+         {en:"Mild fatigue after a long day", ar:"إرهاق خفيف بعد يوم طويل"},
+         {en:"Vaginal bleeding or fluid leaking from the vagina", ar:"نزيف مهبلي أو تسرب سوائل من المهبل"},
+         {en:"Occasional Braxton Hicks contractions", ar:"تقلصات براكستون هيكس العرضية"},
+         {en:"Mild nausea in the first trimester", ar:"غثيان خفيف في الثلث الأول"}
+       ], correct:1,
+       exp:{en:"Vaginal bleeding or fluid leaking from the vagina is a danger sign requiring prompt evaluation, along with severe headache, visual changes, epigastric pain, and significant BP changes.", ar:"يُعد النزيف المهبلي أو تسرب السوائل من المهبل علامة خطر تستدعي تقييمًا فوريًا، إلى جانب الصداع الشديد والاضطرابات البصرية وألم الشرسوف والتغيرات الملحوظة بضغط الدم."}}
+    ]
+  }
+];
+
 /* ============================= SUBJECTS / CATEGORIES / SETS ============================= */
 const SUBJECTS = [
   {
@@ -1368,7 +2036,13 @@ const SUBJECTS = [
       ar:"المحتوى قادم قريبًا — بنفس التنظيم: اختبارات قصيرة، اختبارات شهرية، واختبارات نهائية."
     },
     categories: [
-      {key:"quiz", title:{en:"Short Quizzes", ar:"الاختبار القصير"}, icon:{sym:"Qz", theme:"green"}, sets: []},
+      {key:"quiz", title:{en:"Short Quizzes", ar:"الاختبار القصير"}, icon:{sym:"Qz", theme:"green"}, sets: [
+        {
+          id:"maternity-quiz1",
+          title:{en:"Short Quiz 1 — Reproductive System & Obstetrical Assessment", ar:"الاختبار القصير الأول — الجهاز التناسلي والتقييم التوليدي"},
+          chapters: MATERNITY_CHAPTERS
+        }
+      ]},
       {key:"monthly", title:{en:"Monthly Exams", ar:"الاختبارات الشهرية"}, icon:{sym:"Mo", theme:"yellow"}, sets: []},
       {key:"final", title:{en:"Final Exams", ar:"الاختبارات النهائية"}, icon:{sym:"Fi", theme:"green"}, sets: []}
     ]
@@ -1509,6 +2183,9 @@ function currentSet(){
 
 /* tag each question with its chapter */
 DATA.chapters.forEach(ch=>{
+  ch.questions.forEach(q=>{ q.chapterId = ch.id; });
+});
+MATERNITY_CHAPTERS.forEach(ch=>{
   ch.questions.forEach(q=>{ q.chapterId = ch.id; });
 });
 
