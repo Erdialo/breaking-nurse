@@ -315,6 +315,52 @@
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; animation:none !important;}
   }
+
+  /* ---------- Subjects / Categories / Sets ---------- */
+  .crumbs{padding:14px 0 0; font-size:13px; color:var(--ink-faint); display:flex; flex-wrap:wrap; align-items:center; gap:4px;}
+  .crumbs button{background:none;border:none;padding:0;color:var(--green-600);font-weight:700;cursor:pointer;font-size:13px;font-family:inherit;}
+  .crumbs button:hover{text-decoration:underline;}
+  .crumbs .sep{color:var(--ink-faint); margin:0 2px;}
+  .crumbs .current{font-weight:700; color:var(--ink);}
+
+  .subjectgrid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:10px;}
+  @media (max-width:700px){.subjectgrid{grid-template-columns:1fr;}}
+  .subjcard{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px; box-shadow:var(--shadow-sm); cursor:pointer; position:relative; overflow:hidden;
+    transition:transform .15s, box-shadow .15s, border-color .15s;
+  }
+  .subjcard:hover{transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--green-500);}
+  .subjcard .stripe{position:absolute; inset-inline-start:0; top:0; bottom:0; width:6px; background:linear-gradient(var(--green-400),var(--green-700));}
+  .subjcard.alt .stripe{background:linear-gradient(var(--yellow-400),var(--yellow-700));}
+  .subjcard-top{display:flex; align-items:center; gap:12px; margin-bottom:10px;}
+  .subjcard h3{font-family:var(--font-display); font-size:20px; margin:0;}
+  .subjcard p{margin:0; color:var(--ink-soft); font-size:14px; line-height:1.5;}
+  .subjcard .meta{margin-top:10px; font-size:12px; font-weight:700; color:var(--ink-faint);}
+
+  .catgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  @media (max-width:820px){.catgrid{grid-template-columns:1fr;}}
+  .catcard{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px; box-shadow:var(--shadow-sm); cursor:pointer; text-align:center;
+    transition:transform .15s, box-shadow .15s, border-color .15s;
+  }
+  .catcard:hover{transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--green-500);}
+  .catcard .tile{margin:0 auto 12px;}
+  .catcard h4{font-family:var(--font-display); font-size:17px; margin:0 0 6px;}
+  .catcard .count{font-size:12.5px; color:var(--ink-faint); font-weight:700;}
+
+  .setcard{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 20px; box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:14px; margin-bottom:14px;
+  }
+  .setcard .sinfo{flex:1;}
+  .setcard h4{font-family:var(--font-display); font-size:16.5px; margin:0 0 4px; display:flex; align-items:center; flex-wrap:wrap; gap:8px;}
+  .setcard p{margin:0; font-size:13px; color:var(--ink-soft);}
+  .badge-done{display:inline-block; background:var(--green-100); color:var(--green-700); font-weight:700; font-size:11.5px; padding:3px 10px; border-radius:999px; white-space:nowrap;}
+
+  .empty-state{padding:48px 20px; text-align:center; color:var(--ink-faint); border:1.5px dashed var(--line); border-radius:var(--radius); font-size:14.5px;}
+  .empty-state .big{font-size:34px; margin-bottom:10px;}
 </style>
 </head>
 <body dir="ltr">
@@ -1272,6 +1318,63 @@ const DATA = {
   ]
 };
 
+/* ============================= SUBJECTS / CATEGORIES / SETS ============================= */
+const SUBJECTS = [
+  {
+    id: "adult2",
+    title: {en:"Adult Health Nursing 2", ar:"تمريض صحة البالغين 2"},
+    code: "NUR3313",
+    tile: {sym:"A2", num:"02", theme:"green"},
+    blurb: {
+      en:"Fractures, musculoskeletal disorders, and more — organized into short quizzes, monthly exams, and final exams.",
+      ar:"الكسور واضطرابات الجهاز العضلي الهيكلي وغيرها — منظمة ضمن اختبارات قصيرة واختبارات شهرية واختبارات نهائية."
+    },
+    categories: [
+      {
+        key:"quiz",
+        title:{en:"Short Quizzes", ar:"الاختبار القصير"},
+        icon:{sym:"Qz", theme:"green"},
+        sets: [
+          {
+            id:"adult2-quiz1",
+            title:{en:"Short Quiz 1 — Musculoskeletal Unit", ar:"الاختبار القصير الأول — وحدة الجهاز العضلي الهيكلي"},
+            done:true,
+            statusLabel:{en:"Done — Alhamdulillah ✅", ar:"خلصنا ولله الحمد ✅"},
+            chapters: DATA.chapters
+          }
+        ]
+      },
+      {
+        key:"monthly",
+        title:{en:"Monthly Exams", ar:"الاختبارات الشهرية"},
+        icon:{sym:"Mo", theme:"yellow"},
+        sets: []
+      },
+      {
+        key:"final",
+        title:{en:"Final Exams", ar:"الاختبارات النهائية"},
+        icon:{sym:"Fi", theme:"green"},
+        sets: []
+      }
+    ]
+  },
+  {
+    id: "maternity",
+    title: {en:"Maternity Nursing", ar:"تمريض الأمومة"},
+    code: "",
+    tile: {sym:"Mt", num:"??", theme:"yellow"},
+    blurb: {
+      en:"Content coming soon — organized the same way, into short quizzes, monthly exams, and final exams.",
+      ar:"المحتوى قادم قريبًا — بنفس التنظيم: اختبارات قصيرة، اختبارات شهرية، واختبارات نهائية."
+    },
+    categories: [
+      {key:"quiz", title:{en:"Short Quizzes", ar:"الاختبار القصير"}, icon:{sym:"Qz", theme:"green"}, sets: []},
+      {key:"monthly", title:{en:"Monthly Exams", ar:"الاختبارات الشهرية"}, icon:{sym:"Mo", theme:"yellow"}, sets: []},
+      {key:"final", title:{en:"Final Exams", ar:"الاختبارات النهائية"}, icon:{sym:"Fi", theme:"green"}, sets: []}
+    ]
+  }
+];
+
 /* ============================= UI STRINGS ============================= */
 const UI = {
   en:{
@@ -1311,7 +1414,19 @@ const UI = {
     gradeC:"Needs refinement — review and retry.",
     gradeD:"Contaminated batch. Back to the books.",
     langToggle:"العربية",
-    footer:"Built for NUR3313 — Adult Health Nursing 2. Study hard, test smart."
+    footer:"Study hard, test smart — good luck in all your courses.",
+    subjectsHeading:"Choose a Subject",
+    subjectsTagline:"Pick a course to see its short quizzes, monthly exams, and final exams.",
+    openSubject:"Open subject →",
+    categoriesHeading:"Choose a Category",
+    setsInCategory:"sets",
+    openSet:"Open",
+    comingSoonTitle:"Coming soon",
+    comingSoonDesc:"Nothing here yet — content will be added soon.",
+    backToSubjectsBtn:"Back to subjects",
+    backToCategoryBtn:"Back to categories",
+    backToSetBtn:"Back",
+    chaptersInSet:"chapters"
   },
   ar:{
     brandSub:"تمريض صحة البالغين 2 · NUR3313",
@@ -1350,18 +1465,47 @@ const UI = {
     gradeC:"تحتاج تحسينًا — راجع وأعد المحاولة.",
     gradeD:"دفعة ملوّثة. عد إلى الكتب.",
     langToggle:"English",
-    footer:"صُمم لمقرر NUR3313 — تمريض صحة البالغين 2. ذاكر بجد، واختبر بذكاء."
+    footer:"ذاكر بجد، واختبر بذكاء — بالتوفيق في جميع موادك.",
+    subjectsHeading:"اختر مادة",
+    subjectsTagline:"اختر المادة لترى اختباراتها القصيرة والشهرية والنهائية.",
+    openSubject:"افتح المادة ←",
+    categoriesHeading:"اختر تصنيفًا",
+    setsInCategory:"مجموعات",
+    openSet:"فتح",
+    comingSoonTitle:"قريبًا",
+    comingSoonDesc:"لا يوجد محتوى هنا بعد — سيُضاف قريبًا بإذن الله.",
+    backToSubjectsBtn:"العودة إلى المواد",
+    backToCategoryBtn:"العودة إلى التصنيفات",
+    backToSetBtn:"رجوع",
+    chaptersInSet:"فصول"
   }
 };
 
 /* ============================= STATE ============================= */
 let state = {
   lang: "en",
-  view: "home",       // home | study-list | study-reader | quiz-list | quiz-active | quiz-result
+  view: "subjects",   // subjects | subject | category | set | study-list | study-reader | quiz-list | quiz-active | quiz-result
+  subjectId: null,
+  categoryKey: null,
+  setId: null,
   chapterId: null,
   quiz: null,          // {scopeId, scopeTitle, questions, index, answers, answered, selected}
   openAcc: {}
 };
+
+function currentSubject(){
+  return state.subjectId ? SUBJECTS.find(s=>s.id===state.subjectId) : null;
+}
+function currentCategory(){
+  const subj = currentSubject();
+  if(!subj || !state.categoryKey) return null;
+  return subj.categories.find(c=>c.key===state.categoryKey) || null;
+}
+function currentSet(){
+  const cat = currentCategory();
+  if(!cat || !state.setId) return null;
+  return cat.sets.find(s=>s.id===state.setId) || null;
+}
 
 /* tag each question with its chapter */
 DATA.chapters.forEach(ch=>{
@@ -1418,7 +1562,12 @@ function buildQuizQuestions(sourceQuestions){
   });
 }
 
-function chapterById(id){ return DATA.chapters.find(c=>c.id===id); }
+function chapterById(id){
+  const set = currentSet();
+  const list = set ? set.chapters : DATA.chapters;
+  return list.find(c=>c.id===id);
+}
+function scoreKey(scopeId){ return `${state.setId}::${scopeId}`; }
 
 function escapeHtml(str){
   return String(str).replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[s]));
@@ -1432,7 +1581,10 @@ function render(){
   document.body.dir = state.lang === "ar" ? "rtl" : "ltr";
 
   let body = "";
-  if(state.view === "home") body = renderHome();
+  if(state.view === "subjects") body = renderSubjects();
+  else if(state.view === "subject") body = renderSubjectPage();
+  else if(state.view === "category") body = renderCategoryPage();
+  else if(state.view === "set") body = renderSetHome();
   else if(state.view === "study-list") body = renderStudyList();
   else if(state.view === "study-reader") body = renderStudyReader();
   else if(state.view === "quiz-list") body = renderQuizList();
@@ -1448,33 +1600,157 @@ function render(){
 }
 
 function renderHeader(){
-  const navActive = (v)=> state.view===v || (v==="study-list" && state.view==="study-reader") || (v==="quiz-list" && (state.view==="quiz-active"||state.view==="quiz-result"));
   return `
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brandblock" data-nav="home">
+      <div class="brandblock" data-nav="subjects">
         <div class="tile tile-green"><span class="num">35</span><span class="sym">Br</span></div>
         <div class="tile tile-yellow"><span class="num">07</span><span class="sym">Nu</span></div>
         <div>
           <div class="brand-word">Breaking <b>Nurse</b></div>
         </div>
       </div>
-      <nav class="tabs">
-        <button data-nav="home" class="${navActive('home')?'active':''}">${tr('navHome')}</button>
-        <button data-nav="study-list" class="${navActive('study-list')?'active':''}">${tr('navStudy')}</button>
-        <button data-nav="quiz-list" class="${navActive('quiz-list')?'active':''}">${tr('navQuiz')}</button>
-      </nav>
       <div class="header-controls">
         <button class="lang-btn" data-action="toggle-lang">🌐 ${tr('langToggle')}</button>
       </div>
     </div>
-  </header>`;
+  </header>
+  ${renderCrumbs()}`;
 }
 
-function renderHome(){
+function renderCrumbs(){
+  if(state.view === "subjects") return "";
+  const parts = [];
+  parts.push(`<button data-nav="subjects">${state.lang==='ar'?'🏠 الرئيسية':'🏠 Home'}</button>`);
+
+  const subj = currentSubject();
+  if(subj){
+    if(state.view === "subject"){
+      parts.push(`<span class="current">${t(subj.title)}</span>`);
+    } else {
+      parts.push(`<button data-nav="subject" data-subject="${subj.id}">${t(subj.title)}</button>`);
+    }
+  }
+  const cat = currentCategory();
+  if(cat){
+    if(state.view === "category"){
+      parts.push(`<span class="current">${t(cat.title)}</span>`);
+    } else {
+      parts.push(`<button data-nav="category" data-category="${cat.key}">${t(cat.title)}</button>`);
+    }
+  }
+  const set = currentSet();
+  if(set){
+    if(state.view === "set"){
+      parts.push(`<span class="current">${t(set.title)}</span>`);
+    } else {
+      parts.push(`<button data-nav="set" data-set="${set.id}">${t(set.title)}</button>`);
+    }
+  }
+  if(["study-list","study-reader","quiz-list","quiz-active","quiz-result"].includes(state.view)){
+    const label = state.view.startsWith("study") ? tr('navStudy') : tr('navQuiz');
+    parts.push(`<span class="current">${label}</span>`);
+  }
+
+  const html = parts.map((p,i)=> i===0 ? p : `<span class="sep">/</span>${p}`).join("");
+  return `<div class="wrap"><div class="crumbs">${html}</div></div>`;
+}
+
+function renderSubjects(){
+  const cards = SUBJECTS.map((subj,i)=>`
+    <div class="subjcard ${i%2?'alt':''}" data-nav="subject" data-subject="${subj.id}">
+      <div class="stripe"></div>
+      <div class="subjcard-top">
+        <div class="tile ${subj.tile.theme==='green'?'tile-green':'tile-yellow'}"><span class="num">${subj.tile.num}</span><span class="sym">${subj.tile.sym}</span></div>
+        <h3>${t(subj.title)}</h3>
+      </div>
+      <p>${t(subj.blurb)}</p>
+      <div class="meta">${subj.code || ""}</div>
+    </div>
+  `).join("");
+
+  return `
+  <section class="hero">
+    <h1>Breaking <span class="accent">Nurse</span></h1>
+    <p class="sub">${tr('tagline')}</p>
+  </section>
+  <h2 class="section-title">${tr('subjectsHeading')}</h2>
+  <p style="color:var(--ink-soft); font-size:14.5px; margin:-8px 0 18px;">${tr('subjectsTagline')}</p>
+  <div class="subjectgrid">${cards}</div>
+  `;
+}
+
+function renderSubjectPage(){
+  const subj = currentSubject();
+  if(!subj){ state.view="subjects"; return renderSubjects(); }
+  const cards = subj.categories.map(cat=>`
+    <div class="catcard" data-nav="category" data-category="${cat.key}">
+      <div class="tile ${cat.icon.theme==='green'?'tile-green':'tile-yellow'}"><span class="sym">${cat.icon.sym}</span></div>
+      <h4>${t(cat.title)}</h4>
+      <div class="count">${cat.sets.length} ${tr('setsInCategory')}</div>
+    </div>
+  `).join("");
+
+  return `
+  <div class="reader-head">
+    <div class="tile ${subj.tile.theme==='green'?'tile-green':'tile-yellow'}" style="width:50px;height:50px;"><span class="num">${subj.tile.num}</span><span class="sym" style="font-size:18px;">${subj.tile.sym}</span></div>
+    <h1>${t(subj.title)}</h1>
+  </div>
+  <p class="reader-blurb">${t(subj.blurb)}</p>
+  <h2 class="section-title">${tr('categoriesHeading')}</h2>
+  <div class="catgrid">${cards}</div>
+  `;
+}
+
+function renderCategoryPage(){
+  const subj = currentSubject();
+  const cat = currentCategory();
+  if(!subj || !cat){ state.view="subjects"; return renderSubjects(); }
+
+  if(cat.sets.length === 0){
+    return `
+    <div class="reader-head">
+      <div class="tile ${cat.icon.theme==='green'?'tile-green':'tile-yellow'}" style="width:50px;height:50px;"><span class="sym" style="font-size:18px;">${cat.icon.sym}</span></div>
+      <h1>${t(cat.title)}</h1>
+    </div>
+    <div class="empty-state">
+      <div class="big">🧪</div>
+      <div style="font-weight:700; margin-bottom:6px;">${tr('comingSoonTitle')}</div>
+      <div>${tr('comingSoonDesc')}</div>
+    </div>
+    <div class="reader-actions" style="margin-top:20px;">
+      <button class="btn btn-outline" data-nav="subject" data-subject="${subj.id}">${tr('backToCategoryBtn')}</button>
+    </div>
+    `;
+  }
+
+  const rows = cat.sets.map(set=>{
+    const totalQs = set.chapters.reduce((s,c)=>s+c.questions.length,0);
+    return `
+    <div class="setcard">
+      <div class="sinfo">
+        <h4>${t(set.title)} ${set.done?`<span class="badge-done">${t(set.statusLabel)}</span>`:""}</h4>
+        <p>${set.chapters.length} ${tr('chaptersInSet')} · ${totalQs} ${tr('questionsWord')}</p>
+      </div>
+      <button class="btn btn-primary" data-nav="set" data-set="${set.id}">${tr('openSet')}</button>
+    </div>`;
+  }).join("");
+
+  return `
+  <div class="reader-head">
+    <div class="tile ${cat.icon.theme==='green'?'tile-green':'tile-yellow'}" style="width:50px;height:50px;"><span class="sym" style="font-size:18px;">${cat.icon.sym}</span></div>
+    <h1>${t(cat.title)}</h1>
+  </div>
+  ${rows}
+  `;
+}
+
+function renderSetHome(){
+  const set = currentSet();
+  if(!set){ state.view="subjects"; return renderSubjects(); }
   const scores = getBestScores();
-  const chapterCards = DATA.chapters.map(ch=>{
-    const best = scores[ch.id];
+  const chapterCards = set.chapters.map(ch=>{
+    const best = scores[scoreKey(ch.id)];
     return `
     <div class="chcard">
       <div class="chcard-top">
@@ -1491,31 +1767,32 @@ function renderHome(){
   }).join("");
 
   return `
-  <section class="hero">
-    <h1>Breaking <span class="accent">Nurse</span></h1>
-    <p class="sub">${tr('tagline')}</p>
-    <div class="cardgrid">
-      <div class="bigcard study" data-nav="study-list">
-        <div class="stripe"></div>
-        <h3>${tr('heroStudyTitle')}</h3>
-        <p>${tr('heroStudyDesc')}</p>
-        <div class="go">${tr('goStudy')}</div>
-      </div>
-      <div class="bigcard quiz" data-nav="quiz-list">
-        <div class="stripe"></div>
-        <h3>${tr('heroQuizTitle')}</h3>
-        <p>${tr('heroQuizDesc')}</p>
-        <div class="go">${tr('goQuiz')}</div>
-      </div>
+  <div class="reader-head">
+    <h1>${t(set.title)}</h1>
+  </div>
+  ${set.done?`<p class="reader-blurb">${t(set.statusLabel)}</p>`:""}
+  <div class="cardgrid">
+    <div class="bigcard study" data-nav="study-list">
+      <div class="stripe"></div>
+      <h3>${tr('heroStudyTitle')}</h3>
+      <p>${tr('heroStudyDesc')}</p>
+      <div class="go">${tr('goStudy')}</div>
     </div>
-  </section>
+    <div class="bigcard quiz" data-nav="quiz-list">
+      <div class="stripe"></div>
+      <h3>${tr('heroQuizTitle')}</h3>
+      <p>${tr('heroQuizDesc')}</p>
+      <div class="go">${tr('goQuiz')}</div>
+    </div>
+  </div>
   <h2 class="section-title">${tr('chaptersHeading')}</h2>
   <div class="chapterlist">${chapterCards}</div>
   `;
 }
 
 function renderStudyList(){
-  const cards = DATA.chapters.map(ch=>`
+  const set = currentSet();
+  const cards = set.chapters.map(ch=>`
     <div class="chcard">
       <div class="chcard-top">
         <div class="tile ${ch.tile.theme==='green'?'tile-green':'tile-yellow'}"><span class="num">${ch.tile.num}</span><span class="sym">${ch.tile.sym}</span></div>
@@ -1527,13 +1804,15 @@ function renderStudyList(){
     </div>
   `).join("");
   return `
+    <button class="backlink" data-nav="set" data-set="${set.id}">${state.lang==='ar'?'→':'←'} ${tr('backToSetBtn')}</button>
     <h2 class="section-title">${tr('chaptersHeading')}</h2>
     <div class="chapterlist">${cards}</div>
   `;
 }
 
 function renderStudyReader(){
-  const ch = chapterById(state.chapterId) || DATA.chapters[0];
+  const set = currentSet();
+  const ch = chapterById(state.chapterId) || set.chapters[0];
   state.chapterId = ch.id;
   const sections = ch.sections.map((sec, i)=>{
     const isOpen = state.openAcc[ch.id+"_"+i];
@@ -1564,12 +1843,13 @@ function renderStudyReader(){
 }
 
 function renderQuizList(){
+  const set = currentSet();
   const scores = getBestScores();
-  const totalQs = DATA.chapters.reduce((s,c)=>s+c.questions.length,0);
-  const bestFinal = scores["final"];
+  const totalQs = set.chapters.reduce((s,c)=>s+c.questions.length,0);
+  const bestFinal = scores[scoreKey("final")];
 
-  const chapterCards = DATA.chapters.map(ch=>{
-    const best = scores[ch.id];
+  const chapterCards = set.chapters.map(ch=>{
+    const best = scores[scoreKey(ch.id)];
     return `
     <div class="quizcard">
       <div class="tile ${ch.tile.theme==='green'?'tile-green':'tile-yellow'}"><span class="num">${ch.tile.num}</span><span class="sym">${ch.tile.sym}</span></div>
@@ -1586,6 +1866,7 @@ function renderQuizList(){
   }).join("");
 
   return `
+    <button class="backlink" data-nav="set" data-set="${set.id}">${state.lang==='ar'?'→':'←'} ${tr('backToSetBtn')}</button>
     <h2 class="section-title">${tr('quizzesHeading')}</h2>
     <div class="quizcard final">
       <div class="tile tile-green" style="background:linear-gradient(160deg,var(--yellow-400),var(--yellow-700));color:#2a1d00;"><span class="num">∞</span><span class="sym">Fx</span></div>
@@ -1716,7 +1997,7 @@ function renderQuizResult(){
     <div class="result-actions">
       <button class="btn btn-primary" data-action="retry-quiz">${tr('retryQuiz')}</button>
       <button class="btn btn-outline" data-nav="quiz-list">${tr('backToQuizzes')}</button>
-      <button class="btn btn-outline" data-nav="home">${tr('backHome')}</button>
+      <button class="btn btn-outline" data-nav="subjects">${tr('backHome')}</button>
     </div>
   </div>`;
 }
@@ -1726,7 +2007,20 @@ function attachHandlers(){
   appEl.querySelectorAll("[data-nav]").forEach(el=>{
     el.addEventListener("click", ()=>{
       const view = el.getAttribute("data-nav");
-      if(el.hasAttribute("data-chapter")) state.chapterId = el.getAttribute("data-chapter");
+      if(view === "subjects"){
+        state.subjectId = null; state.categoryKey = null; state.setId = null; state.chapterId = null;
+      } else if(view === "subject"){
+        state.subjectId = el.getAttribute("data-subject") || state.subjectId;
+        state.categoryKey = null; state.setId = null; state.chapterId = null;
+      } else if(view === "category"){
+        state.categoryKey = el.getAttribute("data-category") || state.categoryKey;
+        state.setId = null; state.chapterId = null;
+      } else if(view === "set"){
+        state.setId = el.getAttribute("data-set") || state.setId;
+        state.chapterId = null;
+      } else if(el.hasAttribute("data-chapter")){
+        state.chapterId = el.getAttribute("data-chapter");
+      }
       state.view = view;
       window.scrollTo({top:0, behavior:"instant"});
       render();
@@ -1771,9 +2065,10 @@ function attachHandlers(){
 }
 
 function startQuiz(scopeId){
+  const set = currentSet();
   let sourceQuestions, scopeTitle;
   if(scopeId === "final"){
-    sourceQuestions = DATA.chapters.flatMap(c=>c.questions);
+    sourceQuestions = set.chapters.flatMap(c=>c.questions);
     scopeTitle = {en:"Final Exam", ar:"الاختبار الشامل"};
   }else{
     const ch = chapterById(scopeId);
@@ -1813,7 +2108,7 @@ function nextQuestion(){
     render();
   }else{
     const pct = Math.round((quiz.correctCount/quiz.questions.length)*100);
-    setBestScore(quiz.scopeId, pct);
+    setBestScore(scoreKey(quiz.scopeId), pct);
     state.view = "quiz-result";
     render();
   }
