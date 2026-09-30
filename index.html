@@ -15,18 +15,18 @@
     --ink-soft:#54563f;
     --ink-faint:#8b8c72;
     --line:#e3e3d3;
-    --green-900:#1c2b0e;
-    --green-800:#25400f;
-    --green-700:#345a14;
-    --green-600:#48771a;
-    --green-500:#5f9424;
-    --green-400:#7bb437;
-    --green-100:#e9f1d9;
-    --yellow-700:#a67c00;
-    --yellow-600:#c99a00;
-    --yellow-500:#e9b400;
-    --yellow-400:#f3c93a;
-    --yellow-100:#fdf1c9;
+    --green-900:#152309;
+    --green-800:#1f350d;
+    --green-700:#2c4d10;
+    --green-600:#3f6d13;
+    --green-500:#5c9614;
+    --green-400:#8fc123;
+    --green-100:#e6f0d2;
+    --yellow-700:#8a6400;
+    --yellow-600:#b98900;
+    --yellow-500:#f0b400;
+    --yellow-400:#ffd21f;
+    --yellow-100:#fdedbd;
     --danger:#9c2f21;
     --danger-bg:#fbeae7;
     --shadow-sm: 0 2px 8px rgba(20,25,10,.06);
@@ -72,6 +72,13 @@
     font-family:var(--font-body);
     min-height:100vh;
     -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 3px 3px, color-mix(in srgb, var(--green-500) 14%, transparent) 1.4px, transparent 1.6px);
+    background-size:26px 26px;
+  }
+  .hazstripe{
+    height:7px;
+    background:repeating-linear-gradient(135deg, var(--yellow-400) 0 16px, #17190f 16px 32px);
   }
   body[dir="rtl"]{ letter-spacing:0; }
   a{color:inherit;}
@@ -83,11 +90,14 @@
     position:sticky; top:0; z-index:40;
     background:color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
+    border-bottom:2px solid color-mix(in srgb, var(--green-500) 55%, var(--line));
   }
   .topbar-inner{
     max-width:980px;margin:0 auto;padding:12px 20px;
     display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .crumbbar{
+    background:var(--bg); border-bottom:1px solid var(--line);
   }
   .brandblock{display:flex;align-items:center;gap:10px;cursor:pointer;}
   .tile{
@@ -145,6 +155,10 @@
   }
   .hero h1 .accent{color:var(--green-600);}
   .hero p.sub{color:var(--ink-soft);font-size:16px;max-width:60ch;margin:0 0 26px;}
+  .hero p.salawat{
+    font-family:'Cairo', sans-serif; font-weight:700; font-size:19px;
+    color:var(--green-700); letter-spacing:.2px; max-width:none;
+  }
 
   .cardgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:34px;}
   @media (max-width:700px){.cardgrid{grid-template-columns:1fr;}}
@@ -317,11 +331,20 @@
   }
 
   /* ---------- Subjects / Categories / Sets ---------- */
-  .crumbs{padding:14px 0 0; font-size:13px; color:var(--ink-faint); display:flex; flex-wrap:wrap; align-items:center; gap:4px;}
-  .crumbs button{background:none;border:none;padding:0;color:var(--green-600);font-weight:700;cursor:pointer;font-size:13px;font-family:inherit;}
-  .crumbs button:hover{text-decoration:underline;}
-  .crumbs .sep{color:var(--ink-faint); margin:0 2px;}
-  .crumbs .current{font-weight:700; color:var(--ink);}
+  .crumbs{
+    padding:12px 0; font-size:13px; color:var(--ink-faint); display:flex; flex-wrap:wrap; align-items:center; gap:2px;
+  }
+  .crumbs button{
+    background:var(--paper); border:1px solid var(--line); padding:6px 13px; border-radius:999px;
+    color:var(--green-700); font-weight:700; cursor:pointer; font-size:12.5px; font-family:inherit;
+    transition:background .15s, border-color .15s;
+  }
+  .crumbs button:hover{background:var(--green-100); border-color:var(--green-500);}
+  .crumbs .sep{color:var(--ink-faint); margin:0 3px; font-size:13px;}
+  .crumbs .current{
+    font-weight:700; color:var(--ink); background:var(--yellow-100); padding:6px 13px; border-radius:999px;
+    border:1px solid var(--yellow-500);
+  }
 
   .subjectgrid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:10px;}
   @media (max-width:700px){.subjectgrid{grid-template-columns:1fr;}}
@@ -353,7 +376,9 @@
   .setcard{
     background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
     padding:18px 20px; box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:14px; margin-bottom:14px;
+    transition:border-color .15s, box-shadow .15s;
   }
+  .setcard:hover{border-color:var(--green-500); box-shadow:var(--shadow-md);}
   .setcard .sinfo{flex:1;}
   .setcard h4{font-family:var(--font-display); font-size:16.5px; margin:0 0 4px; display:flex; align-items:center; flex-wrap:wrap; gap:8px;}
   .setcard p{margin:0; font-size:13px; color:var(--ink-soft);}
@@ -2030,10 +2055,10 @@ const SUBJECTS = [
     id: "maternity",
     title: {en:"Maternity Nursing", ar:"تمريض الأمومة"},
     code: "",
-    tile: {sym:"Mt", num:"??", theme:"yellow"},
+    tile: {sym:"Mt", num:"01", theme:"yellow"},
     blurb: {
-      en:"Content coming soon — organized the same way, into short quizzes, monthly exams, and final exams.",
-      ar:"المحتوى قادم قريبًا — بنفس التنظيم: اختبارات قصيرة، اختبارات شهرية، واختبارات نهائية."
+      en:"Reproductive health, pregnancy, childbirth, and newborn care — organized into short quizzes, monthly exams, and final exams.",
+      ar:"الصحة الإنجابية، والحمل، والولادة، ورعاية المولود — منظمة ضمن اختبارات قصيرة واختبارات شهرية واختبارات نهائية."
     },
     categories: [
       {key:"quiz", title:{en:"Short Quizzes", ar:"الاختبار القصير"}, icon:{sym:"Qz", theme:"green"}, sets: [
@@ -2056,7 +2081,7 @@ const UI = {
     tagline:"Master the Musculoskeletal Unit — study smart, then test yourself until it's pure.",
     navHome:"Home", navStudy:"Study", navQuiz:"Quiz",
     heroStudyTitle:"Study the Chapters",
-    heroStudyDesc:"Clear, organized notes for every chapter — fractures, the musculoskeletal system, and metabolic/arthritic disorders.",
+    heroStudyDesc:"Clear, organized notes for every chapter in this set.",
     heroQuizTitle:"Take a Quiz",
     heroQuizDesc:"Practice chapter by chapter, or attempt the Final Exam covering every single question.",
     goStudy:"Browse chapters →", goQuiz:"Browse quizzes →",
@@ -2107,7 +2132,7 @@ const UI = {
     tagline:"أتقن وحدة الجهاز العضلي الهيكلي — ذاكر بذكاء ثم اختبر نفسك حتى تصل للنقاء.",
     navHome:"الرئيسية", navStudy:"المذاكرة", navQuiz:"الاختبار",
     heroStudyTitle:"ذاكر الفصول",
-    heroStudyDesc:"ملخصات واضحة ومنظمة لكل فصل — الكسور، الجهاز العضلي الهيكلي، واضطرابات العظام الاستقلابية والمفاصل.",
+    heroStudyDesc:"ملخصات واضحة ومنظمة لكل فصل ضمن هذه المجموعة.",
     heroQuizTitle:"ابدأ اختبارًا",
     heroQuizDesc:"تدرّب فصلاً فصلاً، أو خض الاختبار الشامل الذي يغطي كل سؤال.",
     goStudy:"تصفح الفصول ←", goQuiz:"تصفح الاختبارات ←",
@@ -2269,6 +2294,7 @@ function render(){
   else if(state.view === "quiz-result") body = renderQuizResult();
 
   appEl.innerHTML = `
+    <div class="hazstripe"></div>
     ${renderHeader()}
     <main><div class="wrap">${body}</div></main>
     <footer class="appfoot">${tr("footer")}</footer>
@@ -2329,8 +2355,8 @@ function renderCrumbs(){
     parts.push(`<span class="current">${label}</span>`);
   }
 
-  const html = parts.map((p,i)=> i===0 ? p : `<span class="sep">/</span>${p}`).join("");
-  return `<div class="wrap"><div class="crumbs">${html}</div></div>`;
+  const html = parts.map((p,i)=> i===0 ? p : `<span class="sep">${state.lang==='ar'?'‹':'›'}</span>${p}`).join("");
+  return `<div class="crumbbar"><div class="wrap"><div class="crumbs">${html}</div></div></div>`;
 }
 
 function renderSubjects(){
@@ -2349,7 +2375,7 @@ function renderSubjects(){
   return `
   <section class="hero">
     <h1>Breaking <span class="accent">Nurse</span></h1>
-    <p class="sub">${tr('tagline')}</p>
+    <p class="sub salawat" dir="rtl" lang="ar">صلِّ على محمد ﷺ</p>
   </section>
   <h2 class="section-title">${tr('subjectsHeading')}</h2>
   <p style="color:var(--ink-soft); font-size:14.5px; margin:-8px 0 18px;">${tr('subjectsTagline')}</p>
@@ -2369,6 +2395,7 @@ function renderSubjectPage(){
   `).join("");
 
   return `
+  <button class="backlink" data-nav="subjects">${state.lang==='ar'?'→':'←'} ${tr('backToSubjectsBtn')}</button>
   <div class="reader-head">
     <div class="tile ${subj.tile.theme==='green'?'tile-green':'tile-yellow'}" style="width:50px;height:50px;"><span class="num">${subj.tile.num}</span><span class="sym" style="font-size:18px;">${subj.tile.sym}</span></div>
     <h1>${t(subj.title)}</h1>
@@ -2386,6 +2413,7 @@ function renderCategoryPage(){
 
   if(cat.sets.length === 0){
     return `
+    <button class="backlink" data-nav="subject" data-subject="${subj.id}">${state.lang==='ar'?'→':'←'} ${tr('backToCategoryBtn')}</button>
     <div class="reader-head">
       <div class="tile ${cat.icon.theme==='green'?'tile-green':'tile-yellow'}" style="width:50px;height:50px;"><span class="sym" style="font-size:18px;">${cat.icon.sym}</span></div>
       <h1>${t(cat.title)}</h1>
@@ -2394,9 +2422,6 @@ function renderCategoryPage(){
       <div class="big">🧪</div>
       <div style="font-weight:700; margin-bottom:6px;">${tr('comingSoonTitle')}</div>
       <div>${tr('comingSoonDesc')}</div>
-    </div>
-    <div class="reader-actions" style="margin-top:20px;">
-      <button class="btn btn-outline" data-nav="subject" data-subject="${subj.id}">${tr('backToCategoryBtn')}</button>
     </div>
     `;
   }
@@ -2414,6 +2439,7 @@ function renderCategoryPage(){
   }).join("");
 
   return `
+  <button class="backlink" data-nav="subject" data-subject="${subj.id}">${state.lang==='ar'?'→':'←'} ${tr('backToCategoryBtn')}</button>
   <div class="reader-head">
     <div class="tile ${cat.icon.theme==='green'?'tile-green':'tile-yellow'}" style="width:50px;height:50px;"><span class="sym" style="font-size:18px;">${cat.icon.sym}</span></div>
     <h1>${t(cat.title)}</h1>
@@ -2425,6 +2451,7 @@ function renderCategoryPage(){
 function renderSetHome(){
   const set = currentSet();
   if(!set){ state.view="subjects"; return renderSubjects(); }
+  const cat = currentCategory();
   const scores = getBestScores();
   const chapterCards = set.chapters.map(ch=>{
     const best = scores[scoreKey(ch.id)];
@@ -2444,6 +2471,7 @@ function renderSetHome(){
   }).join("");
 
   return `
+  <button class="backlink" data-nav="category" data-category="${cat.key}">${state.lang==='ar'?'→':'←'} ${tr('backToCategoryBtn')}</button>
   <div class="reader-head">
     <h1>${t(set.title)}</h1>
   </div>
