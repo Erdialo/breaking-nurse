@@ -308,7 +308,7 @@ void main(){
   vec3 hor=mix(vec3(.86,.45,.26), vec3(.76,.68,.5), smoothstep(.1,.75,alt)); hor=mix(hor, vec3(.88,.30,.22), warm*.5);
   vec3 sky=mix(hor, zen, g);
   float sd=length(vec2(x,y)-sun);
-  sky+=vec3(1.,.66,.38)*exp(-sd*6.)*(.28+.42*warm) + vec3(1.,.93,.78)*smoothstep(.024,.018,sd)*(1.-step(y,hz-.06));
+  sky+=vec3(1.,.66,.38)*exp(-sd*6.)*(.28+.42*warm) + vec3(1.,.93,.78)*.62*smoothstep(.019,.014,sd)*(1.-step(y,hz-.06));
   vec3 night=mix(vec3(.035,.07,.075), vec3(.006,.016,.02), g);
   vec2 sq=vec2(x,y)*240., sp=floor(sq); float st=step(.9966,h(sp))*smoothstep(.45,.12,length(fract(sq)-.5))*(.55+.45*sin(T*1.7+h(sp+3.)*40.));
   night+=vec3(.9,.95,1.)*st*smoothstep(hz+.04,hz+.3,y);
